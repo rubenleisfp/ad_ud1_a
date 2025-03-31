@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<aula>
+    <alumno id="1">
+        <nombre>Ruben</nombre>
+        <apellido1>Rodriguez</apellido1>
+        <edad>41</edad>
+        <calificacion>
+            <nombre>AD</nombre>
+            <nota>2.0</nota>
+        </calificacion>
+        <calificacion>
+            <nombre>PM</nombre>
+            <nota>4.0</nota>
+        </calificacion>
+    </alumno>
+    <alumno id="1">
+        <nombre>Alberto</nombre>
+        <apellido1>Rubio</apellido1>
+        <edad>60</edad>
+        <calificacion>
+            <nombre>AD</nombre>
+            <nota>8.0</nota>
+        </calificacion>
+        <calificacion>
+            <nombre>PM</nombre>
+            <nota>9.0</nota>
+        </calificacion>
+    </alumno>
+    <nombreAula>DAM 2</nombreAula>
+</aula>

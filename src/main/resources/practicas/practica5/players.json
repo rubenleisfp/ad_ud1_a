@@ -1,0 +1,38 @@
+[
+  {
+    "year": 1996,
+    "name": "bebeto",
+    "team": "deportivo",
+    "salary": 3.0
+  },
+  {
+    "year": 1996,
+    "name": "mauro silva",
+    "team": "deportivo",
+    "salary": 3.0
+  },
+  {
+    "year": 1996,
+    "name": "djukic",
+    "team": "deportivo",
+    "salary": 2.5
+  },
+  {
+    "year": 1996,
+    "name": "fran",
+    "team": "deportivo",
+    "salary": 2.0
+  },
+  {
+    "year": 1996,
+    "name": "rekarte",
+    "team": "deportivo",
+    "salary": 0.5
+  },
+  {
+    "year": 1996,
+    "name": "david",
+    "team": "deportivo",
+    "salary": 0.5
+  }
+]

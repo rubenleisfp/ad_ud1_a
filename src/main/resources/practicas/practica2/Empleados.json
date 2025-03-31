@@ -1,0 +1,36 @@
+[
+	{
+		"id": 45,
+		"nombre": "Susna",
+		"empresa": "Indra",
+		"vacaciones": [
+			{
+				"inicio": "07/08/2012",
+				"fin": "10/08/2012",
+				"d": 3
+			},
+			{
+				"inicio": "28/08/2012",
+				"fin": "29/08/2012",
+				"d": 1
+			}
+		]
+	},
+	{
+		"id": 46,
+		"nombre": "Miguel",
+		"empresa": "Autentia",
+		"vacaciones": [
+			{
+				"inicio": "06/08/2012",
+				"fin": "10/08/2012",
+				"d": 5
+			},
+			{
+				"inicio": "23/08/2012",
+				"fin": "29/08/2012",
+				"d": 7
+			}
+		]
+	}
+]

@@ -1,0 +1,34 @@
+[
+	{
+		"dni": "12345678-T",
+		"nombre": "Alicia",
+		"apellido1": "Castro",
+		"apellido2": "Lopez",
+		"asignaturas": [
+			{
+				"nombre": "BBDD",
+				"calificacion": 9
+			},
+			{
+				"nombre": "LM",
+				"calificacion": 8
+			}
+		]
+	},
+	{
+		"dni": "22345678-T",
+		"nombre": "Borja",
+		"apellido1": "Sanchez",
+		"apellido2": "Lopez",
+		"asignaturas": [
+			{
+				"nombre": "BBDD",
+				"calificacion": 7
+			},
+			{
+				"nombre": "LM",
+				"calificacion": 6
+			}
+		]
+	}
+]

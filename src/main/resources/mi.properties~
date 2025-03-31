@@ -1,0 +1,6 @@
+num_maximo_elementos=10
+database_user=root
+database_pass=1234
+default_language=en
+USER=OTRO_USER
+implementacionTextWriter=P
