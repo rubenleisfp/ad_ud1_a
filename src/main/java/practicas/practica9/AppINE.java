@@ -14,47 +14,24 @@ public class AppINE {
 	private static int PRIMERAS_PROVINCIAS = 5;
 
 	public static void main(String[] args) {
-		
-		try {
-			List<String> lineas=getLineasFichero(INE_PATH);
-			List<Provincia> provincias = parsearLineas(lineas);
-			ordenar(provincias);
-			mostrarNPrimerasProvincias(provincias);
-			
-			
-		} catch (IOException e) {
-			System.out.println(e);
-		}
+
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 	private static void mostrarNPrimerasProvincias(List<Provincia> provincias) {
-		for (int i=0;i<PRIMERAS_PROVINCIAS;i++) {
-			System.out.println(provincias.get(i).toString());
-		}
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 	private static void  ordenar(List<Provincia> provincias) {
-		Collections.sort(provincias, Comparator.comparing(Provincia::getPoblacion).reversed());
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 	public static List<String> getLineasFichero(String path) throws IOException {
-		List<String> lines = GestorBuffered.read(path);
-		return lines;
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 	
 	public static List<Provincia> parsearLineas(List<String> lineas) {
-		List<Provincia> provincias = new ArrayList<Provincia>();
-		for (int i=1;i<lineas.size();i++) {
-			String[] camposCsv = lineas.get(i).split(CSV_SEPARATOR);
-			String nombre = camposCsv[0];
-			String poblacionAsString = camposCsv[1];
-			int poblacion = Integer.valueOf(poblacionAsString);
-			
-			Provincia provincia = new Provincia(nombre,poblacion);
-			provincias.add(provincia);
-		}
-		return provincias;
-		
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 	
 	

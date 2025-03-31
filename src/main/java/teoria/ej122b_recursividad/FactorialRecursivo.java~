@@ -3,7 +3,8 @@ package teoria.ej122b_recursividad;
 public class FactorialRecursivo {
 
     public static int factorial(int n) {
-        throw new UnsupportedOperationException("A completar por el alumno");
+        //TODO a completar por el alumno
+        return 0;
     }
 
     public static void main(String[] args) {

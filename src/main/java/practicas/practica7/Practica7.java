@@ -4,30 +4,12 @@ import java.io.File;
 
 public class Practica7 {
     public static void main(String[] args) {
-    	String ruta = "G:\\Mi unidad\\FP\\DEV\\AD\\UD1\\ad_ud1_1\\src\\main\\resources\\1_1_recursividad\\A\\A1\\A11\\A11.txt";
-    	ruta = "G:/Mi unidad/FP/DEV/AD/UD1/ad_ud1_1/src/main/resources/1_1_recursividad/A/A1/A11/A11.txt";
-
+    	String ruta = "src/main/resources/1_1_recursividad/A/A1/A11/A11.txt";
         mostrarInfoFichero(ruta);
     }
     
     public static void mostrarInfoFichero(String ruta) {
 
-        File archivo = new File(ruta);
-
-        if (archivo.exists()) {
-            System.out.println("El fichero o directorio existe.");
-
-            if (archivo.isDirectory()) {
-                System.out.println("Es un directorio.");
-            } else {
-                System.out.println("Es un fichero.");
-                System.out.println("Nombre: " + archivo.getName());
-                System.out.println("Tamaño: " + archivo.length() + " bytes");
-                System.out.println("Permisos de lectura: " + (archivo.canRead() ? "Sí" : "No"));
-                System.out.println("Permisos de escritura: " + (archivo.canWrite() ? "Sí" : "No"));
-            }
-        } else {
-            System.out.println("El fichero o directorio no existe.");
-        }
+        throw new UnsupportedOperationException("A completar por el alumno");
     }
 }

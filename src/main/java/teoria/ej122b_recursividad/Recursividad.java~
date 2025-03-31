@@ -14,9 +14,7 @@ public class Recursividad {
 		if (fichero.isDirectory()) {
 			File[] lista = fichero.listFiles(); //TODO a completar por el alumno
 			for (int i = 0; i < lista.length; i++) {
-				if (lista[i].isFile() ) {
-					System.out.println(lista[i].getName()); //TODO a completar por el alumno
-				}
+				System.out.println(lista[i].getName()); //TODO a completar por el alumno
 				if (lista[i].isDirectory()) {
 					mostrarCarpeta(lista[i]); //TODO a completar por el alumno
 				}

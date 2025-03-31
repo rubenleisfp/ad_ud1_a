@@ -26,7 +26,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 	 */
 	@Override
 	public void agregarArtista(String artista) throws RegistroDuplicado, ExcepcionGestorArtista {
-		try {
+
 			//TODO
 			//1.- Crear una lista vacia
 			//2.- Si el registro ya existe, lanzar la excepcion registro duplicado
@@ -34,15 +34,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 			//4.- Volcar la lista a fichero mediante GestorBuffered
 			//5.- Capturar la excepcion y generar una ExcepcionGestorArtista
 
-			List<String> artistas = new ArrayList<>();
-			if (artistas.contains(artista)) {
-				throw new RegistroDuplicado("El artista ya está registrado.");
-			}
-			artistas.add(artista);
-			GestorBuffered.writeLines(this.nombreFichero, true, artistas);
-		} catch (IOException e) {
-			throw new ExcepcionGestorArtista("Error consultando el fichero", e);
-		}
+			throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
 
 	/**
@@ -56,11 +48,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//TODO
 		//1.- Leer el fichero mediante GestorBuffered
 		//2.- Capturar la excepcion y generar una ExcepcionGestorArtista
-		try {
-			return GestorBuffered.read(this.nombreFichero);
-		} catch (IOException e) {
-			throw new ExcepcionGestorArtista("Error consultando el fichero", e);
-		}
+		throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
 
 	/**
@@ -76,8 +64,8 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//1.- Leer el fichero mediante GestorBuffered
 		//2.- Comprobar si en la lista anterior esta el nombre buscado
 		//3.- Capturar la excepcion y generar una ExcepcionGestorArtista
+		throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 
-		return mostrarArtistas().contains(nombre);
 	}
 
 	/**
@@ -96,12 +84,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//	  Sino esta devolver la excepcion indicando que el artista no esta registrado
 		//3.- Capturar la excepcion y generar una ExcepcionGestorArtista
 
-		List<String> artistas = mostrarArtistas();
-		if (artistas.contains(nombre)) {
-			return nombre;
-		} else {
-			throw new ExcepcionGestorArtista("El artista no está registrado.");
-		}
+		throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
 
 	/**

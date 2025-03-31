@@ -17,21 +17,10 @@ public class AppPrediccion {
     }
 
     private  void escribirJsonTemperaturasMedias() {
-        try {
-            predConcelloService.escribirTemperaturaMediaEnFichero("src/main/resources/practica10/prediccioncoruna.json","src/main/resources/practica10/tmedia.json");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        throw new UnsupportedOperationException("A completar por el alumno");
     }
 
     private  void getPredConcelloFromJsonFile() {
-
-        try {
-            PredConcello predConcello = predConcelloService.getPredConcelloFromJsonFile("src/main/resources/practica10/prediccioncoruna.json");
-
-            System.out.println(predConcello);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        throw new UnsupportedOperationException("A completar por el alumno");
     }
 }

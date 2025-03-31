@@ -1,10 +1,8 @@
 package practicas.practica10.service;
 
-
+import com.google.gson.*;
 import practicas.practica10.model.*;
 import practicas.practica10.service.dto.TemperaturaMedia;
-
-
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -14,33 +12,19 @@ import java.util.List;
 
 public class PredConcelloService {
 
-    /**
-     * Escribe las temperaturas medias en un fichero JSON.
-     *
-     * @param inputFilePath la ruta del fichero con la predicción JSON.
-     * @param outputfilePath la ruta del fichero donde guardar los datos.
-     * @throws IOException si ocurre un error al escribir el fichero.
-     */
     public void escribirTemperaturaMediaEnFichero(String inputFilePath, String outputfilePath) throws IOException {
         TemperaturaMedia temperaturaMedia = getTemperaturaMediaSemanal(inputFilePath);
 
         JsonObject jsonObject = new JsonObject();
-        jsonObject.put("tmax_promedio", temperaturaMedia.getTmax());
-        jsonObject.put("tmin_promedio", temperaturaMedia.getTmi());
+        jsonObject.addProperty("tmax_promedio", temperaturaMedia.getTmax());
+        jsonObject.addProperty("tmin_promedio", temperaturaMedia.getTmi());
 
         try (FileWriter fileWriter = new FileWriter(outputfilePath)) {
-            fileWriter.write(Jsoner.serialize(jsonObject));
+            fileWriter.write(new Gson().toJson(jsonObject));
             fileWriter.flush();
         }
     }
 
-    /**
-     * Obtiene las temperaturas medias de una semana a partir de la predicción en JSON.
-     *
-     * @param filePath la ruta del fichero con la predicción JSON.
-     * @return TemperaturaMedia con las temperaturas promedio.
-     * @throws IOException si ocurre un error al leer el fichero.
-     */
     public TemperaturaMedia getTemperaturaMediaSemanal(String filePath) throws IOException {
         PredConcello predConcello = getPredConcelloFromJsonFile(filePath);
         List<PredDiaConcello> listaPredDiaConcello = predConcello.getListaPredDiaConcello();
@@ -58,75 +42,10 @@ public class PredConcelloService {
             sumaTmin += predDia.gettMin();
         }
 
-        TemperaturaMedia temperaturaMedia = new TemperaturaMedia();
-        temperaturaMedia.setTmax(sumaTmax / totalDias);
-        temperaturaMedia.setTmi(sumaTmin / totalDias);
-
-        return temperaturaMedia;
+        return new TemperaturaMedia(sumaTmax / totalDias, sumaTmin / totalDias);
     }
 
-    /**
-     * Carga un archivo JSON y lo convierte en un objeto PredConcello.
-     *
-     * @param filePath la ruta al archivo JSON.
-     * @return un objeto PredConcello.
-     * @throws IOException si ocurre un error al leer el fichero.
-     */
     public PredConcello getPredConcelloFromJsonFile(String filePath) throws IOException {
-        try (FileReader reader = new FileReader(filePath)) {
-            JsonObject root = null;
-            root = (JsonObject) Jsoner.deserialize(reader);
-
-            JsonObject predConcelloJson = (JsonObject) root.get("predConcello");
-
-            PredConcello predConcello = new PredConcello();
-            predConcello.setIdConcello(((Number) predConcelloJson.get("idConcello")).intValue());
-            predConcello.setNome((String) predConcelloJson.get("nome"));
-
-            JsonArray listaPredDiaConcelloJson = (JsonArray) predConcelloJson.get("listaPredDiaConcello");
-            List<PredDiaConcello> listaPredDiaConcello = new ArrayList<>();
-
-            for (Object item : listaPredDiaConcelloJson) {
-                JsonObject itemJson = (JsonObject) item;
-
-                PredDiaConcello predDia = new PredDiaConcello();
-                predDia.setDataPredicion((String) itemJson.get("dataPredicion"));
-                predDia.setNivelAviso(itemJson.get("nivelAviso") != null ? ((Number) itemJson.get("nivelAviso")).intValue() : null);
-                predDia.settMax(((Number) itemJson.get("tMax")).intValue());
-                predDia.settMin(((Number) itemJson.get("tMin")).intValue());
-                predDia.setTmaxFranxa(itemJson.get("tmaxFranxa") != null ? ((Number) itemJson.get("tmaxFranxa")).intValue() : null);
-                predDia.setTminFranxa(itemJson.get("tminFranxa") != null ? ((Number) itemJson.get("tminFranxa")).intValue() : null);
-                predDia.setUvMax(((Number) itemJson.get("uvMax")).intValue());
-
-                JsonObject ceoJson = (JsonObject) itemJson.get("ceo");
-                Ceo ceo = new Ceo();
-                ceo.setManha(((Number) ceoJson.get("manha")).intValue());
-                ceo.setNoite(((Number) ceoJson.get("noite")).intValue());
-                ceo.setTarde(((Number) ceoJson.get("tarde")).intValue());
-                predDia.setCeo(ceo);
-
-                JsonObject pchoivaJson = (JsonObject) itemJson.get("pchoiva");
-                PChoiva pchoiva = new PChoiva();
-                pchoiva.setManha(((Number) pchoivaJson.get("manha")).intValue());
-                pchoiva.setNoite(((Number) pchoivaJson.get("noite")).intValue());
-                pchoiva.setTarde(((Number) pchoivaJson.get("tarde")).intValue());
-                predDia.setPchoiva(pchoiva);
-
-                JsonObject ventoJson = (JsonObject) itemJson.get("vento");
-                Vento vento = new Vento();
-                vento.setManha(((Number) ventoJson.get("manha")).intValue());
-                vento.setNoite(((Number) ventoJson.get("noite")).intValue());
-                vento.setTarde(((Number) ventoJson.get("tarde")).intValue());
-                predDia.setVento(vento);
-
-                listaPredDiaConcello.add(predDia);
-            }
-
-            predConcello.setListaPredDiaConcello(listaPredDiaConcello);
-
-            return predConcello;
-        } catch (JsonException e) {
-            throw new RuntimeException(e);
-        }
+        throw new UnsupportedOperationException("A completar por el alumno");
     }
 }

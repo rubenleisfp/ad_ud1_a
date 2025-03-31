@@ -34,65 +34,16 @@ public class Practica6 {
 	 * @param extensiones List<String> Ej: csv, txt
 	 */
 	public static void listarPorExtension(File fichero, List<String> extensiones) {
-		if (fichero.isDirectory()) {
-			File[] lista = fichero.listFiles();
-			for (int i = 0; i < lista.length; i++) {
-				if (lista[i].isFile()) {
-					//Recorro todas las extensiones
-					for (String extension : extensiones) {
-						
-		                // Verificar si la extensión del archivo coincide con alguna de las extensiones proporcionadas
-		                if (lista[i].getName().toLowerCase().endsWith(extension.toLowerCase())) {
-		                    System.out.println(lista[i].getName());
-		                }
-		            }
-				}
-				if (lista[i].isDirectory()) {
-					listarPorExtension(lista[i], extensiones);
-				}
-			}
-		}
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 	
 	public static void listarPorExtension(String ruta) {
-		File fichero = new File(ruta);
-		if (fichero.isDirectory()) {
-			File[] lista = fichero.listFiles();
-
-			for (int i = 0; i < lista.length; i++) {
-
-				if (lista[i].getName().toLowerCase().endsWith(".txt")) {
-					System.out.println(lista[i].getName());
-				}
-
-				if (lista[i].isDirectory()) {
-					listarPorExtension(lista[i].getPath());
-				}
-			}
-
-		}
-
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 	public static void listarPorExtension(String ruta, String extension) {
-		File fichero = new File(ruta);
-		if (fichero.isDirectory()) {
-			File[] lista = fichero.listFiles();
-
-			for (int i = 0; i < lista.length; i++) {
-
-				if (lista[i].getName().toLowerCase().endsWith(extension)) {
-					System.out.println(lista[i].getName());
-				}
-
-				if (lista[i].isDirectory()) {
-					listarPorExtension(lista[i].getPath(), extension);
-				}
-			}
-
-		}
-
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
 }

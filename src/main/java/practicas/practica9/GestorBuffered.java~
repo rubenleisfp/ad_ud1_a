@@ -38,5 +38,5 @@ public class GestorBuffered {
 		// nosotros
 		throw new UnsupportedOperationException("A completar por el alumno");
 	}
-
+	
 }

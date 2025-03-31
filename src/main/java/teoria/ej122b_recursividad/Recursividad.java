@@ -11,14 +11,6 @@ public class Recursividad {
 
 	// una funcion recursiva que se llame a si misma
 	public static void mostrarCarpeta(File fichero) {
-		if (fichero.isDirectory()) {
-			File[] lista = fichero.listFiles(); //TODO a completar por el alumno
-			for (int i = 0; i < lista.length; i++) {
-				System.out.println(lista[i].getName()); //TODO a completar por el alumno
-				if (lista[i].isDirectory()) {
-					mostrarCarpeta(lista[i]); //TODO a completar por el alumno
-				}
-			}
-		}
+		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 }
