@@ -19,11 +19,5 @@ public class InspeccionarFile
         for (File fchild: listFiles) {
             System.out.println("AbsolutePath fchild: " + fchild.getAbsolutePath());
         }
-        
-        System.out.println("UserHome: " + System.getProperty("user.home"));
-        System.out.println("FileSeparator: " + System.getProperty("file.separator"));
-        System.out.println("UserDir: " + System.getProperty("user.dir"));
-        System.out.println("LineSeparator: " + System.getProperty("line.separator"));
-     
     }
 }

@@ -1,0 +1,16 @@
+# Ejercicios de programacion en Java
+
+En este proyecto se han resuelto una serie de ejercicios de programacion en Java, abarcando diferentes tematicas como:
+
+* Lectura y escritura de ficheros: txt, csv, xml, properties y json
+* Uso de excepciones
+* Uso de la API de Java para manipular xml
+* Uso de la API de Java para manipular json
+* Uso de la API de Java para realizar operaciones con fechas y horas
+* Uso de la API de Java para realizar operaciones con colecciones
+* Uso de patrones de diseño para resolver problemas
+* Uso de test unitarios
+
+Tambien se han resuelto problemas de programaci n de diferente dificultad, desde problemas simples hasta problemas mas complejos que requieren un analisis y diseño previo.
+
+En cada uno de los paquetes se ha incluido un archivo README.md que explica brevemente lo que se ha hecho en cada paquete.
