@@ -1,4 +1,4 @@
-package teoria.ej19_json;
+package teoria.ej19_json.ciudad;
 public class Ciudad {
     String nombre;
     int habitantes;

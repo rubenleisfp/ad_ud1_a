@@ -1,4 +1,4 @@
-package ad.practica306.utils;
+package practicas.practica306.utils;
 
 import teoria.ej207_test_unitarios.GestorBuffered;
 import org.junit.After;

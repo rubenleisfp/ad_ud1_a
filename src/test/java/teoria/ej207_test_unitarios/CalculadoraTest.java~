@@ -15,21 +15,28 @@ public class CalculadoraTest {
 
 	@Test
 	public void testRestar() {
-		throw new UnsupportedOperationException("Test a completar por el alumno");
+		Calculadora calc = new Calculadora();
+		int resultado = calc.restar(10, 4);
+		assertEquals(6, resultado);
 	}
 
 	@Test
 	public void testMultiplicar() {
-		throw new UnsupportedOperationException("Test a completar por el alumno");
+		Calculadora calc = new Calculadora();
+		int resultado = calc.multiplicar(2, 6);
+		assertEquals(12, resultado);
 	}
 
 	@Test
 	public void testDividir() {
-		throw new UnsupportedOperationException("Test a completar por el alumno");
+		Calculadora calc = new Calculadora();
+		int resultado = calc.dividir(10, 2);
+		assertEquals(5, resultado);
 	}
 
-	@Test
+	@Test(expected = ArithmeticException.class)
 	public void testDividirPorCero() {
-		throw new UnsupportedOperationException("Test a completar por el alumno");
+		Calculadora calc = new Calculadora();
+		calc.dividir(10, 0);
 	}
 }

@@ -1,4 +1,4 @@
-package ad.practica306.dao.impl;
+package practicas.practica306.dao.impl;
 
 import practicas.practica306.dao.impl.DaoArtistasFichero;
 import practicas.practica306.exceptions.ExcepcionGestorArtista;

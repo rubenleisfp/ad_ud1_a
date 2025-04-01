@@ -1,4 +1,4 @@
-package teoria.ej19_json;
+package teoria.ej19_json.alumno;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ public class Alumno {
 	private String apellido1;
 	private String apellido2;
 	private List<Asignatura> asignaturas;
-	
+
 	public Alumno(String dni, String nombre, String apellido1, String apellido2, List<Asignatura> asignaturas) {
 		this.dni=dni;
 		this.nombre=nombre;
@@ -52,6 +52,6 @@ public class Alumno {
 		return "Alumno [dni=" + dni + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2
 				+ ", asignaturas=" + asignaturas + "]";
 	}
-	
+
 	
 }

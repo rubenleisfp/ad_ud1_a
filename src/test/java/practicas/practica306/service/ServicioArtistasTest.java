@@ -1,4 +1,4 @@
-package ad.practica306.service;
+package practicas.practica306.service;
 
 import practicas.practica306.dao.DaoArtistas;
 import practicas.practica306.exceptions.RegistroDuplicado;

@@ -14,7 +14,6 @@ public class AppINE {
 	private static int PRIMERAS_PROVINCIAS = 5;
 
 	public static void main(String[] args) {
-
 		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
@@ -33,7 +32,5 @@ public class AppINE {
 	public static List<Provincia> parsearLineas(List<String> lineas) {
 		throw new UnsupportedOperationException("A completar por el alumno");
 	}
-	
-	
 
 }

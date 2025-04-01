@@ -1,0 +1,9 @@
+package teoria.ej19_json.alumno;
+
+import java.util.List;
+
+public class Alumno {
+
+
+	
+}

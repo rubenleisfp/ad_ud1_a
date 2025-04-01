@@ -10,7 +10,7 @@ class Inventario {
     }
 
     // Método para agregar productos al inventario
-    public void agregarProducto(int cantidad) throws InventarioLlenoException{
+    public void agregarProducto(int cantidad) {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
