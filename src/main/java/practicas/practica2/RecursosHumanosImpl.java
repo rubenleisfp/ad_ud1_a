@@ -20,35 +20,12 @@ public class RecursosHumanosImpl implements RecursosHumanos{
 
 	@Override
 	public Empleado getEmpleadoFromJsonFile(File file) {
-		Empleado empleado = null;
-		try {
-			final String FORMATO_FECHA = "dd/MM/yyyy";
-			final DateFormat DF = new SimpleDateFormat(FORMATO_FECHA);
-			final Gson gson = new GsonBuilder().setDateFormat(FORMATO_FECHA).create();
-			
-			empleado= gson.fromJson(new FileReader(file), Empleado.class);
-		
-		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
-			System.out.println(e);
-		}
-		return empleado;
+		throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
 	
 	@Override
 	public List<Empleado> getEmpleadosFromJsonFile(File file) {
-		try {
-			final String FORMATO_FECHA = "dd/MM/yyyy";
-			final DateFormat DF = new SimpleDateFormat(FORMATO_FECHA);
-			
-			Type listType = new TypeToken<ArrayList<Empleado>>(){}.getType();
-			final Gson gson = new GsonBuilder().setDateFormat(FORMATO_FECHA).create();
-			List<Empleado> empleados = gson.fromJson(new FileReader(file), listType);
-			return empleados;
-
-		} catch (JsonSyntaxException | JsonIOException | FileNotFoundException e) {
-			System.out.println(e);
-		}
-		return null;
+		throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
 
 }

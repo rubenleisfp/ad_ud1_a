@@ -12,16 +12,11 @@ public class AulaConverter {
 
     public void marshallAula(Aula aula, String filePath) throws JAXBException, IOException {
 
-        JAXBContext context = JAXBContext.newInstance(Aula.class);
-        Marshaller mar = context.createMarshaller();
-        mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        mar.marshal(aula, new File(filePath));
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
 
     public Aula unmarshallAula(String filePath) throws JAXBException, IOException {
-        JAXBContext context = JAXBContext.newInstance(Aula.class);
-        return (Aula) context.createUnmarshaller()
-                .unmarshal(new FileReader(filePath));
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 }

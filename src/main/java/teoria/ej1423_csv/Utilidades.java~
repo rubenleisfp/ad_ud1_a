@@ -12,7 +12,12 @@ public class Utilidades {
      *         María,32,maria@example.com
      */
     public List<String> getLineasAlumnos(List<Alumno> alumnos) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        List<String> lineas = new ArrayList<>();
+        for (Alumno alumno: alumnos) {
+            String linea = getLineaAlumno(alumno);
+            lineas.add(linea);
+        }
+        return lineas;
     }
 
     /**
@@ -21,7 +26,8 @@ public class Utilidades {
      * @return Juan,28,juan@example.com
      */
     public String getLineaAlumno(Alumno alumno) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        String linea = alumno.getNombre() + "," + alumno.getEdad() + "," + alumno.getCorreo();
+        return linea;
     }
 
     /**
@@ -34,7 +40,13 @@ public class Utilidades {
      */
     public List<Alumno> getAlumnosFromLineas(List<String> lineas) {
         //Quitamos la cabecera
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        lineas.remove(0);
+        List<Alumno> alumnos = new ArrayList<>();
+        for (String linea : lineas) {
+            Alumno alumno = getAlumnoFromLine(linea);
+            alumnos.add(alumno);
+        }
+        return alumnos;
     }
 
     /**
@@ -44,6 +56,8 @@ public class Utilidades {
      * @return
      */
     private Alumno getAlumnoFromLine(String lineaAlumno) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        String[] lineaAlumnoArray = lineaAlumno.split(",");
+        Alumno alumno = new Alumno(lineaAlumnoArray[0],Integer.valueOf(lineaAlumnoArray[1]),lineaAlumnoArray[2]);
+        return alumno;
     }
 }

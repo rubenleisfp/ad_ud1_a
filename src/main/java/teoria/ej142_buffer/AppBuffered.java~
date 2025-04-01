@@ -18,15 +18,33 @@ public class AppBuffered {
     }
 
 	private static void imprimirPorConsola(String nombreFichero) {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		try {
+			GestorFicheroBuffered.printFileToConsole(nombreFichero);
+		} catch (IOException e) {
+			System.out.println("Error al escribir fichero: " + e);
+		}
 	}
+
+
+
 
 	private static void escribirNumeros(String nombreFichero,int numeroMaximo) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		List<String> lines = obtenerListaNumeros(numeroMaximo);
+		GestorFicheroBuffered.writeLines(nombreFichero, false,lines);
+		imprimirPorConsola(nombreFichero);
 	}
 
+
 	private static List<String> obtenerListaNumeros(int numeroMaximo) {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		List<String> lines = new ArrayList<String>();
+		for (int i=1; i<numeroMaximo;i++) {
+			if (i%2==0) {
+				lines.add(i + " es un número par");
+			} else {
+				lines.add(i + " es un número impar");
+			}
+		}
+		return lines;
 	}
 	
 	

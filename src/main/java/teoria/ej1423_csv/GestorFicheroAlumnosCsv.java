@@ -19,9 +19,7 @@ public class GestorFicheroAlumnosCsv {
      * @throws IOException
      */
     public List<Alumno> getAlumnos(String filePath) throws IOException {
-        List<String> lineasAlumnos = GestorFicheroBuffered.readLines(filePath);
-        List<Alumno> alumnos = utilidades.getAlumnosFromLineas(lineasAlumnos);
-        return alumnos;
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
     /**
@@ -36,13 +34,7 @@ public class GestorFicheroAlumnosCsv {
         //TODO
         //1.Llamar a GestorFiheroBuffered para obtener una list<String> con el contenido del fichero
         //2.Transformar la linea en un alumno. Repetir el proceso para todas las lineas del fichero
-        List<Alumno> alumnos = getAlumnos(filePath);
-        double edadMedia = 0;
-        for (Alumno alumno : alumnos) {
-            edadMedia += alumno.getEdad();
-        }
-        edadMedia = edadMedia / alumnos.size();
-        return edadMedia;
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
     /**
@@ -56,13 +48,6 @@ public class GestorFicheroAlumnosCsv {
         //TODO
         //1. Transformar un alumno en una linea de texto, dónde campo se separa por ,. Repetir el proceso para todos los alumnos
         //2.-Llama al GestorFicheroBuffered para pasarle la lista de lineas
-        List<String> lines = new ArrayList<>();
-
-        // Añadir la cabecera
-        lines.add("Nombre,Edad,Correo");
-        lines.addAll(utilidades.getLineasAlumnos(alumnos));
-
-        // Escribir las líneas en el fichero CSV usando GestorFicheroBuffered
-        GestorFicheroBuffered.writeLines(filePath, false, lines);
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 }

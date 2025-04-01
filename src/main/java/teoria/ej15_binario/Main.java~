@@ -1,4 +1,4 @@
-package ad.ad1_ud1_a_1_5_binario;
+package teoria.ej15_binario;
 
 import java.util.ArrayList;
 import java.util.List;
