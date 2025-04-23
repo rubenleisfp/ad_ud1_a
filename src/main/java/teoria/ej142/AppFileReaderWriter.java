@@ -7,13 +7,31 @@ import java.util.List;
 public class AppFileReaderWriter {
 
     public static void main(String[] args) {
-        ejercicioA();
-        //ejercicioB();
+        //ejercicioA();
+        ejercicioB();
         //ejercicioC();
     }
 
     private static void ejercicioA() {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        boolean append = false;
+
+        String ficheroWriter = "file_sample_writer.txt";
+        String ficheroPrint = "file_sample_print.txt";
+
+        try {
+            GestorFichero.write(ficheroWriter, append);
+            GestorFichero.printWrite(ficheroPrint, append);
+        } catch (IOException e) {
+            System.out.println("Error al escribir en el fichero: " + e);
+        }
+
+        try {
+            String contenidoFichero = GestorFichero.read(ficheroWriter);
+            System.out.println("contenidoFichero:");
+            System.out.println(contenidoFichero);
+        } catch (IOException e) {
+            System.out.println("Error al leer del fichero: " + e);
+        }
     }
 
     /**
@@ -23,7 +41,7 @@ public class AppFileReaderWriter {
      *
      */
     private static void ejercicioB() {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+
     }
 
     /**

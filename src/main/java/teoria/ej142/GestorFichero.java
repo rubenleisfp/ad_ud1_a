@@ -16,7 +16,10 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static void write(String fichero, boolean append) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		String linea1 = "Hola Mundo \n";
+		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
+			fileWriter.write(linea1);
+		}
 	}
 
 	/**
@@ -27,7 +30,10 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static void printWrite(String fichero, boolean append) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		String linea1 = "Hola Mundo";
+		try (FileWriter fileWriter = new FileWriter(fichero, append); PrintWriter printWriter = new PrintWriter(fileWriter)) {
+			printWriter.write(linea1);
+		}
 	}
 
 	/**
@@ -38,7 +44,16 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static String read(String fichero) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		StringBuilder sb = new StringBuilder();
+		try (FileReader fileReader = new FileReader(fichero)) {
+			// leer y mostrar el contenido del archivo
+			int caracter;
+			while ((caracter = fileReader.read()) != -1) {
+				//System.out.print((char) caracter);
+				sb.append((char) caracter);
+			}
+		}
+		return sb.toString();
 	}
 
 	/**
@@ -53,7 +68,11 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static void write(String fichero, boolean append, List<String> lines) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
+			for (String line : lines) {
+				fileWriter.write(line + "\n");
+			}
+		}
 	}
 
 	public static void writeBeforeJava8(String fichero, boolean append, List<String> lines) {
@@ -87,7 +106,13 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static void printWrite(String fichero, boolean append, List<String> lines) throws IOException {
-		throw new UnsupportedOperationException("A implementar por el alumno");
+		try (FileWriter fileWriter = new FileWriter(fichero, append);
+			 PrintWriter printWriter = new PrintWriter(fileWriter)) {
+			for (String line : lines) {
+				//printWriter.write(line + "\n");
+				printWriter.println(line);
+			}
+		}
 
 	}
 
