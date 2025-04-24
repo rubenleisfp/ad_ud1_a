@@ -1,9 +1,6 @@
-package teoria.ej142_buffer;
+package teoria.ej207_test_unitarios;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class GestorFicheroBuffered {
 		try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
 			String linea;
 			while ((linea = br.readLine()) != null) {
-				
+
 				lineas.add(linea);
 			}
 		}
@@ -34,7 +31,7 @@ public class GestorFicheroBuffered {
 
 	/**
 	 * Recibe una lista de lineas que desea volcar a fichero
-	 * 
+	 *
 	 * @param fichero
 	 * @param append TRUE si va a añadir lineas al final, FALSE si sobreescribe el fichero
 	 * @param lines lista de lineas a volcar en fichero
@@ -50,7 +47,7 @@ public class GestorFicheroBuffered {
 			}
 		}
 	}
-	
+
 	public static void printFileToConsole(File fichero) throws IOException {
 		List<String> lines = readLines(fichero);
 		for (String line: lines) {

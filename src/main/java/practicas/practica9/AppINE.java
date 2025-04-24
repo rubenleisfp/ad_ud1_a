@@ -1,5 +1,8 @@
 package practicas.practica9;
 
+import practicas.practica306.utils.GestorFicheroBuffered;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,7 +19,7 @@ public class AppINE {
 	public static void main(String[] args) {
 		
 		try {
-			List<String> lineas=getLineasFichero(INE_PATH);
+			List<String> lineas=getLineasFichero(new File(INE_PATH));
 			List<Provincia> provincias = parsearLineas(lineas);
 			ordenar(provincias);
 			mostrarNPrimerasProvincias(provincias);
@@ -37,8 +40,8 @@ public class AppINE {
 		Collections.sort(provincias, Comparator.comparing(Provincia::getPoblacion).reversed());
 	}
 
-	public static List<String> getLineasFichero(String path) throws IOException {
-		List<String> lines = GestorBuffered.read(path);
+	public static List<String> getLineasFichero(File file) throws IOException {
+		List<String> lines = GestorFicheroBuffered.readLines(file);
 		return lines;
 	}
 	

@@ -3,18 +3,19 @@ package practicas.practica305.dao.impl;
 import practicas.practica305.dao.DaoArtistas;
 import practicas.practica305.exceptions.ExcepcionGestorArtista;
 import practicas.practica305.exceptions.RegistroDuplicado;
-import practicas.practica305.utils.GestorBuffered;
+import practicas.practica305.utils.GestorFicheroBuffered;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DaoArtistasFichero implements DaoArtistas {
 
-	private String nombreFichero;
+	private File fichero;
 
-	public DaoArtistasFichero(String nombreFichero) {
-		this.nombreFichero = nombreFichero;
+	public DaoArtistasFichero(File fichero) {
+		this.fichero = fichero;
 	}
 
 	/**
@@ -39,7 +40,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 				throw new RegistroDuplicado("El artista ya está registrado.");
 			}
 			artistas.add(artista);
-			GestorBuffered.writeLines(this.nombreFichero, true, artistas);
+			GestorFicheroBuffered.writeLines(this.fichero, true, artistas);
 		} catch (IOException e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero", e);
 		}
@@ -57,7 +58,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//1.- Leer el fichero mediante GestorBuffered
 		//2.- Capturar la excepcion y generar una ExcepcionGestorArtista
 		try {
-			return GestorBuffered.read(this.nombreFichero);
+			return GestorFicheroBuffered.readLines(this.fichero);
 		} catch (IOException e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero", e);
 		}

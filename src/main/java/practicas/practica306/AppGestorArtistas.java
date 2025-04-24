@@ -11,6 +11,7 @@ import practicas.practica306.exceptions.ExcepcionGestorArtista;
 import practicas.practica306.utils.PropertiesHandler;
 import practicas.practica306.utils.UtilidadesArtista;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -43,8 +44,13 @@ public class AppGestorArtistas {
         try {
             menuOpciones(scanner);
         } catch (RegistroDuplicado | ExcepcionGestorArtista e) {
+            //Mostramos informacion relevante al usuario final
             System.out.println("Error al realizar la operativa");
-            System.out.println(e);
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause());
+            //La excepcion solo la relanzamos mientras estamos depurando para ver toda la traza de error
+            //Al usuario esto no hay que mostrarselo, no le aporta nada
+            //throw new RuntimeException(e);
         } finally {
             scanner.close();
         }
@@ -57,7 +63,7 @@ public class AppGestorArtistas {
         PropertiesHandler propertiesHandler = new PropertiesHandler();
         String tipoImplementacion = propertiesHandler.getPropertyString("tipoImplementacion");
         if (tipoImplementacion.equals(TIPO_IMPLEMENTACION_FICHERO)) {
-            daoArtistas = new DaoArtistasFichero(RUTA_FICHERO);
+            daoArtistas = new DaoArtistasFichero(new File(RUTA_FICHERO));
         } else if (tipoImplementacion.equals(TIPO_IMPLEMENTACION_MEMORIA)) {
             daoArtistas = new DaoArtistasMemoria();
         } else {

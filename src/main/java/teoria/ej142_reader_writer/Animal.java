@@ -1,4 +1,4 @@
-package teoria.ej142_buffer;
+package teoria.ej142_reader_writer;
 
 public class Animal {
 

@@ -19,7 +19,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
         List<String> pizzas = new ArrayList<>();
         pizzas.add(pizza);
         try {
-            GestorFicheroBuffered.writeLines(rutaFichero,true,pizzas);
+            GestorFicheroBuffered.writeLines(new File(rutaFichero),true,pizzas);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -29,7 +29,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
     public List<String> obtenerPizzas() {
 
         try {
-            List<String> pizzaLines = GestorFicheroBuffered.readLines(rutaFichero);
+            List<String> pizzaLines = GestorFicheroBuffered.readLines(new File(rutaFichero));
             return pizzaLines;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -42,7 +42,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
         List<String> pizzas = obtenerPizzas();
         if (pizzas.remove(pizza)) {
             try {
-                GestorFicheroBuffered.writeLines(rutaFichero,false,pizzas);
+                GestorFicheroBuffered.writeLines(new File(rutaFichero),false,pizzas);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -4,7 +4,7 @@ import practicas.practica306.dao.impl.DaoArtistasFichero;
 import practicas.practica306.exceptions.ExcepcionGestorArtista;
 import practicas.practica306.exceptions.RegistroDuplicado;
 import practicas.practica306.model.Artista;
-import practicas.practica306.utils.GestorBuffered;
+import practicas.practica306.utils.GestorFicheroBuffered;
 import practicas.practica306.utils.UtilidadesArtista;
 import org.junit.After;
 import org.junit.Before;
@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 public class DaoArtistasFicheroTest {
 
-    private static final String TEST_FILE = "test_artistas.txt";
+    private static final File TEST_FILE = new File("test_artistas.txt");
     private DaoArtistasFichero dao;
 
     private UtilidadesArtista utilidadesArtista = new UtilidadesArtista();
@@ -27,15 +27,15 @@ public class DaoArtistasFicheroTest {
     @Before
     public void setUp() throws IOException {
         // Asegurarse de que el archivo de prueba esté vacío antes de cada prueba
-        new File(TEST_FILE).delete();
-        GestorBuffered.writeLines(TEST_FILE, false, new ArrayList<>());
+        TEST_FILE.delete();
+        GestorFicheroBuffered.writeLines(TEST_FILE, false, new ArrayList<>());
         dao = new DaoArtistasFichero(TEST_FILE);
     }
 
     @After
     public void tearDown() {
         // Eliminar el archivo de prueba después de las pruebas
-        new File(TEST_FILE).delete();
+        TEST_FILE.delete();
     }
 
     @Test

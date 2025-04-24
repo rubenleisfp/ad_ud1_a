@@ -11,7 +11,7 @@ public class PropertiesHandler {
 
 	// Constructor por defecto que usa una ruta predefinida
 	public PropertiesHandler() {
-		this("src/main/resources/practica305/conf.properties");
+		this("src/main/resources/practicas/practica306/conf.properties");
 	}
 
 	// Constructor que recibe una ruta de archivo de propiedades

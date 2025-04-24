@@ -1,5 +1,6 @@
-package teoria.ej142_buffer;
+package teoria.ej142_reader_writer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class AppFileReaderWriter {
 
     public static void main(String[] args) {
-        ejercicioA();
+        //ejercicioA();
         ejercicioB();
         //ejercicioC();
     }
@@ -15,8 +16,8 @@ public class AppFileReaderWriter {
     private static void ejercicioA() {
         boolean append = false;
 
-        String ficheroWriter = "file_sample_writer.txt";
-        String ficheroPrint = "file_sample_print.txt";
+        File ficheroWriter = new File("file_sample_writer.txt");
+        File ficheroPrint = new File("file_sample_print.txt");
 
         try {
             GestorFichero.write(ficheroWriter, append);
@@ -42,9 +43,8 @@ public class AppFileReaderWriter {
      */
     private static void ejercicioB() {
         boolean append = false;
-        String ficheroWriter = "file_sample_writer.txt";
-        String ficheroPrint = "file_sample_print.txt";
-
+        File ficheroWriter = new File("file_sample_writer.txt");
+        File ficheroPrint = new File("file_sample_print.txt");
 
         //Escribimos los numero impares existentes entre 1 y 10 en una lista
         List<String> lines = new ArrayList<String>();
@@ -56,7 +56,7 @@ public class AppFileReaderWriter {
 
         try {
             GestorFichero.write(ficheroWriter, append, lines);
-           // GestorFichero.printWrite(ficheroPrint, append, lines);
+            GestorFichero.printWrite(ficheroPrint, append, lines);
 
         } catch (IOException e) {
             System.out.println("Error al escribir en el fichero: " + e);
@@ -86,7 +86,7 @@ public class AppFileReaderWriter {
         lines = getLinesFromAnimals(animales);
 
         try {
-            GestorFichero.printWrite("C:\\DEV\\animals.txt", false, lines);
+            GestorFichero.printWrite(new File("animals.txt"), false, lines);
         } catch (IOException e) {
             System.out.println("Error al escribir en el fichero: " + e);
         }

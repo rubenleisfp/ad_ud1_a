@@ -17,9 +17,9 @@ public class FileReverse {
 	
 	
 	public void reverseFileV2(File original, File reversed) throws IOException {
-		List<String> lineas = GestorFicheroBuffered.readLines(original.getAbsolutePath());
+		List<String> lineas = GestorFicheroBuffered.readLines(original);
 		Collections.reverse(lineas);
-		GestorFicheroBuffered.writeLines(reversed.getAbsolutePath(), true, lineas);
+		GestorFicheroBuffered.writeLines(reversed, true, lineas);
 	}
 	
 	

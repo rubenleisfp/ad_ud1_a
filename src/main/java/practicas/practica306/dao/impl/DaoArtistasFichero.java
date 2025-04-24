@@ -3,22 +3,23 @@ package practicas.practica306.dao.impl;
 import practicas.practica306.dao.DaoArtistas;
 import practicas.practica306.exceptions.ExcepcionGestorArtista;
 import practicas.practica306.exceptions.RegistroDuplicado;
-import practicas.practica306.utils.GestorBuffered;
+import practicas.practica306.utils.GestorFicheroBuffered;
 import practicas.practica306.utils.UtilidadesArtista;
 import practicas.practica306.model.Artista;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DaoArtistasFichero implements DaoArtistas {
 
-	private String nombreFichero;
+	private File fichero;
 
 	private UtilidadesArtista utilidades = new UtilidadesArtista();
 
-	public DaoArtistasFichero(String nombreFichero) {
-		this.nombreFichero = nombreFichero;
+	public DaoArtistasFichero(File fichero) {
+		this.fichero = fichero;
 	}
 
 	/**
@@ -45,7 +46,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 				throw new RegistroDuplicado("No es posible agregar otra cita para este cliente, ya tiene una previa");
 			}
 			List<String> linesFromCitas = utilidades.getLinesFromArtistas(artistasNuevos);
-			GestorBuffered.writeLines(this.nombreFichero, true, linesFromCitas);
+			GestorFicheroBuffered.writeLines(this.fichero, true, linesFromCitas);
 		} catch (IOException | ExcepcionGestorArtista e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero",e);
 		}
@@ -65,7 +66,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//2.- Convertir las lineas en artistas mediante utilidades y retornarlos
 		//3.- Capturar la excepcion y generar una ExcepcionGestorArtista en caso de error leyendo el fichero
 		try {
-			List<String> lineas = GestorBuffered.read(this.nombreFichero);
+			List<String> lineas = GestorFicheroBuffered.readLines(this.fichero);
 			return utilidades.getArtistasFromLines(lineas);
 		}  catch (IOException e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero",e);
@@ -88,7 +89,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 
 		List<String> lines = null;
 		try {
-			lines = GestorBuffered.read(this.nombreFichero);
+			lines = GestorFicheroBuffered.readLines(this.fichero);
 		} catch (IOException e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero",e);
 		}
@@ -113,7 +114,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//3.- Capturar la excepcion y generar una ExcepcionGestorArtista
 		List<String> lines = null;
 		try {
-			lines = GestorBuffered.read(this.nombreFichero);
+			lines = GestorFicheroBuffered.readLines(this.fichero);
 		} catch (IOException e) {
 			throw new ExcepcionGestorArtista("Error consultando el fichero",e);
 		}
@@ -136,7 +137,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//3.- Borrar el artista de la lista
 		//4.- Volcar la lista a fichero sobreescribiendolo
 		try {
-			List<String> lineas = GestorBuffered.read(this.nombreFichero);
+			List<String> lineas = GestorFicheroBuffered.readLines(this.fichero);
 			List<Artista> artistas = utilidades.getArtistasFromLines(lineas);
 
 			Artista artistaAEliminar = obtenerArtista(artistas, nombre);
@@ -146,7 +147,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 			artistas.remove(artistaAEliminar);
 
 			List<String> lineasActualizadas = utilidades.getLinesFromArtistas(artistas);
-			GestorBuffered.writeLines(this.nombreFichero, false, lineasActualizadas);
+			GestorFicheroBuffered.writeLines(this.fichero, false, lineasActualizadas);
 			return true;
 
 		} catch (IOException e) {
@@ -173,7 +174,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 		//6.- Capturar la excepcion y generar una ExcepcionGestorArtista
 
 		try {
-			List<String> lineas = GestorBuffered.read(this.nombreFichero);
+			List<String> lineas = GestorFicheroBuffered.readLines(this.fichero);
 			List<Artista> artistas = utilidades.getArtistasFromLines(lineas);
 
 			Artista artistaExistente = obtenerArtista(artistas, nombre);
@@ -184,7 +185,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 			artistas.add(nuevoArtista);
 
 			List<String> lineasActualizadas = utilidades.getLinesFromArtistas(artistas);
-			GestorBuffered.writeLines(this.nombreFichero, false, lineasActualizadas);
+			GestorFicheroBuffered.writeLines(this.fichero, false, lineasActualizadas);
 			return true;
 
 		} catch (IOException e) {
@@ -205,7 +206,7 @@ public class DaoArtistasFichero implements DaoArtistas {
 
 		try {
 			// 1.- Borrar la lista mediante GestorBuffered pasando una lista vacía
-			GestorBuffered.writeLines(this.nombreFichero, false, new ArrayList<>());
+			GestorFicheroBuffered.writeLines(this.fichero, false, new ArrayList<>());
 
 		} catch (IOException e) {
 			// 2.- Capturar la excepción y generar una ExcepcionGestorArtista

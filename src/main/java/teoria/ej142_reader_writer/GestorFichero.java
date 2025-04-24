@@ -1,9 +1,6 @@
-package teoria.ej142_buffer;
+package teoria.ej142_reader_writer;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -18,7 +15,7 @@ public class GestorFichero {
 	 * @param append
 	 * @throws IOException
 	 */
-	public static void write(String fichero, boolean append) throws IOException {
+	public static void write(File fichero, boolean append) throws IOException {
 		String linea1 = "Hola Mundo \n";
 		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
 			fileWriter.write(linea1);
@@ -32,7 +29,7 @@ public class GestorFichero {
 	 * @param append
 	 * @throws IOException
 	 */
-	public static void printWrite(String fichero, boolean append) throws IOException {
+	public static void printWrite(File fichero, boolean append) throws IOException {
 		String linea1 = "Hola Mundo";
 		try (FileWriter fileWriter = new FileWriter(fichero, append); PrintWriter printWriter = new PrintWriter(fileWriter)) {
 			printWriter.write(linea1);
@@ -42,11 +39,11 @@ public class GestorFichero {
 	/**
 	 * Metodo que sirve para devolver un String con el contenido del fichero
 	 *
-	 * @param fichero ruta relativa o absoluta del fichero
+	 * @param fichero
 	 * @return String con el contenido del fichero
 	 * @throws IOException
 	 */
-	public static String read(String fichero) throws IOException {
+	public static String read(File fichero) throws IOException {
 		StringBuilder sb = new StringBuilder();
 		try (FileReader fileReader = new FileReader(fichero)) {
 			// leer y mostrar el contenido del archivo
@@ -65,12 +62,12 @@ public class GestorFichero {
 	 * Podemos anadirlas o sobreescribir el fichero.
 	 * Es necesario agregar el /n para hacer salto de linea
 	 *
-	 * @param fichero ruta relativa o absoluta del fichero
+	 * @param fichero
 	 * @param append true anhade mas filas al final, false sobreescribe el fichero
 	 * @param lines lista de lineas que quiero escribir en el fichero
 	 * @throws IOException
 	 */
-	public static void write(String fichero, boolean append, List<String> lines) throws IOException {
+	public static void write(File fichero, boolean append, List<String> lines) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
 			for (String line : lines) {
 				fileWriter.write(line + "\n");
@@ -108,7 +105,7 @@ public class GestorFichero {
 	 * @param lines lista de lineas que quiero escribir en el fichero
 	 * @throws IOException
 	 */
-	public static void printWrite(String fichero, boolean append, List<String> lines) throws IOException {
+	public static void printWrite(File fichero, boolean append, List<String> lines) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fichero, append);
 				PrintWriter printWriter = new PrintWriter(fileWriter)) {
 			for (String line : lines) {

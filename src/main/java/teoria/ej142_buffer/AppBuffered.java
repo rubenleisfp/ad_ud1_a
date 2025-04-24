@@ -1,5 +1,6 @@
 package teoria.ej142_buffer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +12,15 @@ public class AppBuffered {
 		//ejemploBasico(nombreFichero);
 		//imprimirPorConsola(nombreFichero);
         try {
-            escribirNumeros(nombreFichero,5);
+            escribirNumeros(new File(nombreFichero),5);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-	private static void imprimirPorConsola(String nombreFichero) {
+	private static void imprimirPorConsola(File fichero) {
 		try {
-			GestorFicheroBuffered.printFileToConsole(nombreFichero);
+			GestorFicheroBuffered.printFileToConsole(fichero);
 		} catch (IOException e) {
 			System.out.println("Error al escribir fichero: " + e);
 		}
@@ -28,10 +29,10 @@ public class AppBuffered {
 
 
 
-	private static void escribirNumeros(String nombreFichero,int numeroMaximo) throws IOException {
+	private static void escribirNumeros(File fichero, int numeroMaximo) throws IOException {
 		List<String> lines = obtenerListaNumeros(numeroMaximo);
-		GestorFicheroBuffered.writeLines(nombreFichero, false,lines);
-		imprimirPorConsola(nombreFichero);
+		GestorFicheroBuffered.writeLines(fichero, false,lines);
+		imprimirPorConsola(fichero);
 	}
 
 
@@ -46,54 +47,21 @@ public class AppBuffered {
 		}
 		return lines;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	private static void ejemploBasico(String nombreFichero) {
+
+	private static void ejemploBasico(File fichero) {
 		
 		List<String> lines = new ArrayList<String>();
 		lines.add("UNO");
 		lines.add("DOS");
 		try {
-			GestorFicheroBuffered.writeLines(nombreFichero, false,lines);
+			GestorFicheroBuffered.writeLines(fichero, false,lines);
 		} catch (IOException e) {
 			System.out.println("Error al escribir el fichero: " + lines);
 		}
 		
 		try {
-			lines = GestorFicheroBuffered.readLines(nombreFichero);
+			lines = GestorFicheroBuffered.readLines(fichero);
 			for (String line : lines) {
 				System.out.println(line);
 			}
