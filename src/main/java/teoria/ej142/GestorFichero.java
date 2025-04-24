@@ -16,7 +16,7 @@ public class GestorFichero {
 	 * @throws IOException
 	 */
 	public static void write(String fichero, boolean append) throws IOException {
-		String linea1 = "Hola Mundo \n";
+		String linea1 = "Hola Mundo";
 		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
 			fileWriter.write(linea1);
 		}
@@ -32,7 +32,7 @@ public class GestorFichero {
 	public static void printWrite(String fichero, boolean append) throws IOException {
 		String linea1 = "Hola Mundo";
 		try (FileWriter fileWriter = new FileWriter(fichero, append); PrintWriter printWriter = new PrintWriter(fileWriter)) {
-			printWriter.write(linea1);
+			printWriter.println(linea1);
 		}
 	}
 
@@ -49,7 +49,6 @@ public class GestorFichero {
 			// leer y mostrar el contenido del archivo
 			int caracter;
 			while ((caracter = fileReader.read()) != -1) {
-				//System.out.print((char) caracter);
 				sb.append((char) caracter);
 			}
 		}
@@ -70,7 +69,9 @@ public class GestorFichero {
 	public static void write(String fichero, boolean append, List<String> lines) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fichero, append)) {
 			for (String line : lines) {
-				fileWriter.write(line + "\n");
+				fileWriter.write(line);
+				//fileWriter.write("\n");
+				fileWriter.write(System.lineSeparator());
 			}
 		}
 	}
@@ -108,10 +109,10 @@ public class GestorFichero {
 	public static void printWrite(String fichero, boolean append, List<String> lines) throws IOException {
 		try (FileWriter fileWriter = new FileWriter(fichero, append);
 			 PrintWriter printWriter = new PrintWriter(fileWriter)) {
-			for (String line : lines) {
-				//printWriter.write(line + "\n");
+			for (String line: lines) {
 				printWriter.println(line);
 			}
+
 		}
 
 	}
