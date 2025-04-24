@@ -2,6 +2,7 @@ package teoria.ej1423_csv;
 
 import teoria.ej142_buffer.GestorFicheroBuffered;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class GestorFicheroAlumnosCsv {
      * @return
      * @throws IOException
      */
-    public List<Alumno> getAlumnos(String filePath) throws IOException {
+    public List<Alumno> getAlumnos(File filePath) throws IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
@@ -30,7 +31,7 @@ public class GestorFicheroAlumnosCsv {
      * @return
      * @throws IOException
      */
-    public double getEdadMedia(String filePath) throws IOException {
+    public double getEdadMedia(File filePath) throws IOException {
         //TODO
         //1.Llamar a GestorFiheroBuffered para obtener una list<String> con el contenido del fichero
         //2.Transformar la linea en un alumno. Repetir el proceso para todas las lineas del fichero
@@ -41,10 +42,10 @@ public class GestorFicheroAlumnosCsv {
      * Recibe una lista de alumnos y la ruta del fichero, y los escribe como CSV.
      *
      * @param alumnos Lista de alumnos a escribir en el fichero.
-     * @param filePath Ruta del fichero donde se va a guardar el CSV.
+     * @param fichero Ruta del fichero donde se va a guardar el CSV.
      * @throws IOException
      */
-    public void escribirAlumnosCsv(List<Alumno> alumnos, String filePath) throws IOException {
+    public void escribirAlumnosCsv(List<Alumno> alumnos, File fichero) throws IOException {
         //TODO
         //1. Transformar un alumno en una linea de texto, dónde campo se separa por ,. Repetir el proceso para todos los alumnos
         //2.-Llama al GestorFicheroBuffered para pasarle la lista de lineas

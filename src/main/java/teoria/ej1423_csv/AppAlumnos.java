@@ -1,5 +1,6 @@
 package teoria.ej1423_csv;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +22,18 @@ public class AppAlumnos {
 
         try {
             // Escribir la lista de alumnos en un fichero CSV
-            gestor.escribirAlumnosCsv(listaAlumnos, filePath);
+            gestor.escribirAlumnosCsv(listaAlumnos, new File(filePath));
             System.out.println("Lista de alumnos escrita en el fichero CSV.");
 
             // Leer la lista de alumnos desde el fichero CSV
-            List<Alumno> alumnosLeidos = gestor.getAlumnos(filePath);
+            List<Alumno> alumnosLeidos = gestor.getAlumnos(new File(filePath));
             System.out.println("Alumnos leídos desde el fichero CSV:");
             for (Alumno alumno : alumnosLeidos) {
                 System.out.println(alumno);
             }
 
             // Calcular y mostrar la edad media de los alumnos
-            double edadMedia = gestor.getEdadMedia(filePath);
+            double edadMedia = gestor.getEdadMedia(new File(filePath));
             System.out.println("Edad media de los alumnos: " + edadMedia);
 
         } catch (IOException e) {

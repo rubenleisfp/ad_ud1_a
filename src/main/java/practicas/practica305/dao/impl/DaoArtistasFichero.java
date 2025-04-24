@@ -3,7 +3,6 @@ package practicas.practica305.dao.impl;
 import practicas.practica305.dao.DaoArtistas;
 import practicas.practica305.exceptions.ExcepcionGestorArtista;
 import practicas.practica305.exceptions.RegistroDuplicado;
-import practicas.practica305.utils.GestorBuffered;
 
 import java.io.IOException;
 import java.util.ArrayList;
