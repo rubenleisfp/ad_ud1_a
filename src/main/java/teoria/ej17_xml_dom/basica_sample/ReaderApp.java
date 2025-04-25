@@ -1,6 +1,7 @@
 package teoria.ej17_xml_dom.basica_sample;
 
 import java.io.File;
+import java.sql.SQLOutput;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -41,7 +42,8 @@ public class ReaderApp {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Error al leer el archivo: " + e.getMessage());
+			System.err.println("Causa: " + e.getCause());
 		}
 	}
 
@@ -71,7 +73,8 @@ public class ReaderApp {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("Error al leer el archivo: " + e.getMessage());
+			System.err.println("Causa: " + e.getCause());
 		}
 	}
 

@@ -10,16 +10,37 @@ import java.io.IOException;
 
 public class BookConverter {
 
-    public void marshallBook(Book book, String filePath) throws JAXBException, IOException {
+    /**
+     * Escribe un libro en un fichero
+     * @param book
+     * @param fichero
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public void marshallBook(Book book, File fichero) throws JAXBException, IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
-    public void marshallBookStore(Bookstore bookstore, String filePath) throws JAXBException, IOException {
+    /**
+     * Escribe una libreria (conjunto de libros) en un fichero
+     * @param bookstore
+     * @param file
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public void marshallBookStore(Bookstore bookstore, File file) throws JAXBException, IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
 
     }
 
-    public Book unmarshallBook(String filePath) throws JAXBException, IOException {
+    /**
+     * Obtiene un libro de un fichero XML
+     * @param file
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public Book unmarshallBook(File file) throws JAXBException, IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
 
     }

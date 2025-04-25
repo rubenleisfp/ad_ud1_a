@@ -1,10 +1,6 @@
 package teoria.ej19_json.alumno;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,11 +30,11 @@ public class AppAlumnos {
 	
 	
 	
-	private static void escribirJson(String filePath) {
+	private static void escribirJson(File fichero) {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
-	private static List<Alumno> leerJson(String filePath) {
+	private static List<Alumno> leerJson(File fichero) {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
@@ -69,8 +65,5 @@ public class AppAlumnos {
 
 		return alumnos;
 	}
-
-
-
 
 }

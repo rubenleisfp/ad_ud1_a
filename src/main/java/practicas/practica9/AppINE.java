@@ -1,5 +1,6 @@
 package practicas.practica9;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,7 +26,7 @@ public class AppINE {
 		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 
-	public static List<String> getLineasFichero(String path) throws IOException {
+	public static List<String> getLineasFichero(File fichero) throws IOException {
 		throw new UnsupportedOperationException("A completar por el alumno");
 	}
 	

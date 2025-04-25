@@ -1,3 +1,6 @@
 *.xml~
 .idea/
 target/
+*.java~
+src/main/resources/practicas/practica4/fich1_fich2.txt
+*.txt~

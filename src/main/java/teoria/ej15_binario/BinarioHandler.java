@@ -6,11 +6,16 @@ import java.util.List;
 
 public class BinarioHandler {
 
-	public void escribirBinario(String fileName, List<Producto> productos) {
+	/**
+	 * Escribe la lista de productos en un archivo binario
+	 * @param fichero
+	 * @param productos
+	 */
+	public void escribirBinario(File fichero, List<Producto> productos) {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
-	public List<Producto> leerBinario(String fileName) {
+	public List<Producto> leerBinario(File fichero) {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 }

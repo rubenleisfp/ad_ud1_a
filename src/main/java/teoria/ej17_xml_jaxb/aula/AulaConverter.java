@@ -10,13 +10,27 @@ import java.io.IOException;
 
 public class AulaConverter {
 
-    public void marshallAula(Aula aula, String filePath) throws JAXBException, IOException {
-
+    /**
+     * Escribe un aula en un fichero XML
+     * @param aula
+     * @param file
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public void marshallAula(Aula aula, File file) throws JAXBException, IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
 
-    public Aula unmarshallAula(String filePath) throws JAXBException, IOException {
+    /**
+     *
+     * Recupera un aula de un fichero XML
+     * @param file
+     * @return
+     * @throws JAXBException
+     * @throws IOException
+     */
+    public Aula unmarshallAula(File file) throws JAXBException, IOException {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
 }

@@ -4,16 +4,17 @@ import practicas.practica305.dao.DaoArtistas;
 import practicas.practica305.exceptions.ExcepcionGestorArtista;
 import practicas.practica305.exceptions.RegistroDuplicado;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DaoArtistasFichero implements DaoArtistas {
 
-	private String nombreFichero;
+	private File fichero;
 
-	public DaoArtistasFichero(String nombreFichero) {
-		this.nombreFichero = nombreFichero;
+	public DaoArtistasFichero(File fichero) {
+		this.fichero = fichero;
 	}
 
 	/**

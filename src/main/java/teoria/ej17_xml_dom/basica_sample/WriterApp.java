@@ -19,115 +19,116 @@ import teoria.ej17_xml_dom.coche.Coche;
 
 public class WriterApp {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		WriterApp writerApp = new WriterApp();
-		writerApp.writeConcesionario2();
-		
-		List<Coche> coches = new ArrayList<Coche>();
-		coches.add(new Coche(1,"Renault","Megane",Double.parseDouble("1.5")));
-		coches.add(new Coche(2,"Seat","Leon",Double.parseDouble("1.6")));
-		coches.add(new Coche(3,"Suzuki","Vitara",Double.parseDouble("1.9")));		
-		
-		writerApp.writeConcesionario3(coches);
-		System.out.println("Done!");
-	}
-	
-	public void writeConcesionario3(List<Coche> coches) {
-		try {
-			  DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			  DocumentBuilder db = dbf.newDocumentBuilder();
-			  Document doc = db.newDocument();
+    public static void main(String[] args) {
+        WriterApp writerApp = new WriterApp();
+        writerApp.writeConcesionario2();
 
-			  // definimos el elemento raíz del documento
-			  Element eRaiz = doc.createElement("concesionario");
-			  doc.appendChild(eRaiz);
+        List<Coche> coches = new ArrayList<Coche>();
+        coches.add(new Coche(1, "Renault", "Megane", Double.parseDouble("1.5")));
+        coches.add(new Coche(2, "Seat", "Leon", Double.parseDouble("1.6")));
+        coches.add(new Coche(3, "Suzuki", "Vitara", Double.parseDouble("1.9")));
 
-			  int id=0;
-			  // definimos el nodo que contendrá los elementos
-			  for (Coche coche: coches) {
-				  id++;
-				  Element eCoche = doc.createElement("coche");
-				  eRaiz.appendChild(eCoche);
-	
-				  // atributo para el nodo coche
-				  Attr attr = doc.createAttribute("id");
-				  attr.setValue(String.valueOf(id));
-				  eCoche.setAttributeNode(attr);
-	
-				  // definimos cada uno de los elementos y le asignamos un valor
-				  Element eMarca = doc.createElement("marca");
-				  eMarca.appendChild(doc.createTextNode(coche.getMarca()));
-				  eCoche.appendChild(eMarca);
-	
-				  Element eModelo = doc.createElement("modelo");
-				  eModelo.appendChild(doc.createTextNode(coche.getModelo()));
-				  eCoche.appendChild(eModelo);
-	
-				  Element eCilindrada = doc.createElement("cilindrada");
-				  eCilindrada.appendChild(doc.createTextNode(String.valueOf(coche.getCilindrada())));
-				  eCoche.appendChild(eCilindrada);
-			  }
+        writerApp.writeConcesionario3(coches);
+        System.out.println("Done!");
+    }
 
-			  // clases necesarias finalizar la creación del archivo XML
-			  TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			  Transformer transformer = transformerFactory.newTransformer();
-			  transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-			  transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			  
-			  DOMSource source = new DOMSource(doc);
-			  StreamResult result = new StreamResult(new File("concesionario3.xml"));
+    public void writeConcesionario3(List<Coche> coches) {
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.newDocument();
 
-			  transformer.transform(source, result);
-			} catch(Exception e) {
-			  e.printStackTrace();
-			}
+            // definimos el elemento raíz del documento
+            Element eRaiz = doc.createElement("concesionario");
+            doc.appendChild(eRaiz);
 
-	}
-	
-	public void writeConcesionario2() {
-		try {
-			  DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-			  DocumentBuilder db = dbf.newDocumentBuilder();
-			  Document doc = db.newDocument();
+            int id = 0;
+            // definimos el nodo que contendrá los elementos
+            for (Coche coche : coches) {
+                id++;
+                Element eCoche = doc.createElement("coche");
+                eRaiz.appendChild(eCoche);
 
-			  // definimos el elemento raíz del documento
-			  Element eRaiz = doc.createElement("concesionario");
-			  doc.appendChild(eRaiz);
+                // atributo para el nodo coche
+                Attr attr = doc.createAttribute("id");
+                attr.setValue(String.valueOf(id));
+                eCoche.setAttributeNode(attr);
 
-			  // definimos el nodo que contendrá los elementos
-			  Element eCoche = doc.createElement("coche");
-			  eRaiz.appendChild(eCoche);
+                // definimos cada uno de los elementos y le asignamos un valor
+                Element eMarca = doc.createElement("marca");
+                eMarca.appendChild(doc.createTextNode(coche.getMarca()));
+                eCoche.appendChild(eMarca);
 
-			  // atributo para el nodo coche
-			  Attr attr = doc.createAttribute("id");
-			  attr.setValue("1");
-			  eCoche.setAttributeNode(attr);
+                Element eModelo = doc.createElement("modelo");
+                eModelo.appendChild(doc.createTextNode(coche.getModelo()));
+                eCoche.appendChild(eModelo);
 
-			  // definimos cada uno de los elementos y le asignamos un valor
-			  Element eMarca = doc.createElement("marca");
-			  eMarca.appendChild(doc.createTextNode("Renault"));
-			  eCoche.appendChild(eMarca);
+                Element eCilindrada = doc.createElement("cilindrada");
+                eCilindrada.appendChild(doc.createTextNode(String.valueOf(coche.getCilindrada())));
+                eCoche.appendChild(eCilindrada);
+            }
 
-			  Element eModelo = doc.createElement("modelo");
-			  eModelo.appendChild(doc.createTextNode("Megano"));
-			  eCoche.appendChild(eModelo);
+            // clases necesarias finalizar la creación del archivo XML
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
-			  Element eCilindrada = doc.createElement("cilindrada");
-			  eCilindrada.appendChild(doc.createTextNode("1.5"));
-			  eCoche.appendChild(eCilindrada);
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File("concesionario3.xml"));
 
-			  // clases necesarias finalizar la creación del archivo XML
-			  TransformerFactory transformerFactory = TransformerFactory.newInstance();
-			  Transformer transformer = transformerFactory.newTransformer();
-			  DOMSource source = new DOMSource(doc);
-			  StreamResult result = new StreamResult(new File("concesionario2.xml"));
+            transformer.transform(source, result);
+        } catch (Exception e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println("Causa: " + e.getCause());
+        }
 
-			  transformer.transform(source, result);
-			} catch(Exception e) {
-			  e.printStackTrace();
-			}
+    }
 
-	}
+    public void writeConcesionario2() {
+        try {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.newDocument();
+
+            // definimos el elemento raíz del documento
+            Element eRaiz = doc.createElement("concesionario");
+            doc.appendChild(eRaiz);
+
+            // definimos el nodo que contendrá los elementos
+            Element eCoche = doc.createElement("coche");
+            eRaiz.appendChild(eCoche);
+
+            // atributo para el nodo coche
+            Attr attr = doc.createAttribute("id");
+            attr.setValue("1");
+            eCoche.setAttributeNode(attr);
+
+            // definimos cada uno de los elementos y le asignamos un valor
+            Element eMarca = doc.createElement("marca");
+            eMarca.appendChild(doc.createTextNode("Renault"));
+            eCoche.appendChild(eMarca);
+
+            Element eModelo = doc.createElement("modelo");
+            eModelo.appendChild(doc.createTextNode("Megano"));
+            eCoche.appendChild(eModelo);
+
+            Element eCilindrada = doc.createElement("cilindrada");
+            eCilindrada.appendChild(doc.createTextNode("1.5"));
+            eCoche.appendChild(eCilindrada);
+
+            // clases necesarias finalizar la creación del archivo XML
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File("concesionario2.xml"));
+
+            transformer.transform(source, result);
+        } catch (Exception e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println("Causa: " + e.getCause());
+        }
+
+    }
 
 }

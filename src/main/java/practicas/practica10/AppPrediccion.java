@@ -13,7 +13,7 @@ public class AppPrediccion {
 
         AppPrediccion appPrediccion = new AppPrediccion();
         //appPrediccion.getPredConcelloFromJsonFile();
-        appPrediccion.escribirJsonTemperaturasMedias();
+        //appPrediccion.escribirJsonTemperaturasMedias();
     }
 
     private  void escribirJsonTemperaturasMedias() {

@@ -8,6 +8,7 @@ import practicas.practica305.exceptions.RegistroDuplicado;
 import practicas.practica305.exceptions.ExcepcionGestorArtista;
 import practicas.practica305.utils.PropertiesHandler;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -51,7 +52,7 @@ public class AppGestorArtistas {
         PropertiesHandler propertiesHandler = new PropertiesHandler();
         String tipoImplementacion = propertiesHandler.getPropertyString("tipoImplementacion");
         if (tipoImplementacion.equals(TIPO_IMPLEMENTACION_FICHERO)) {
-            daoArtistas = new DaoArtistasFichero("C:/DEV/artistas.txt");
+            daoArtistas = new DaoArtistasFichero(new File("src/main/resources/practicas/practica305/artistas.txt"));
         } else if (tipoImplementacion.equals(TIPO_IMPLEMENTACION_MEMORIA)) {
             daoArtistas = new DaoArtistasMemoria();
         } else {

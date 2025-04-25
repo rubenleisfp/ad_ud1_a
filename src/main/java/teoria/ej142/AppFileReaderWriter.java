@@ -33,9 +33,21 @@ public class AppFileReaderWriter {
     private static void ejercicioC() {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
+
+    /**
+     * Transforma una lista de animales en una lista de lineas (String)
+     * @param animales
+     * @return
+     */
     private static List<String> getLinesFromAnimals(List<Animal> animales) {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }
+
+    /**
+     * Transforma un animal en una linea (String)
+     * @param animal
+     * @return
+     */
     private static String getLineFromAnimal(Animal animal) {
         throw new UnsupportedOperationException("A implementar por el alumno");
     }

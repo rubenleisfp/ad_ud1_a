@@ -54,7 +54,7 @@ public class AulaApp {
 //		aula.setNombreAula("DAM 2");
 //		aula.setAlumnos(alumnos);
 
-	//	aulaConverter.marshallAula(aula,"src\\main\\resources\\1_7_xml_jaxb\\aula.xml");
+	//	aulaConverter.marshallAula(aula,new File("src\\main\\resources\\1_7_xml_jaxb\\aula.xml"));
 	}
 
 }

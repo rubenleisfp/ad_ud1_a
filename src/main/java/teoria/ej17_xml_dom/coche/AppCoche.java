@@ -1,5 +1,6 @@
 package teoria.ej17_xml_dom.coche;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class AppCoche {
 	}
 	
 	public void readXML() {
-		List<Coche> coches = cocheRepository.readFromXml("src/main/resources/1_7_xml_dom/coches.xml");
+		List<Coche> coches = cocheRepository.readFromXml(new File("src/main/resources/1_7_xml_dom/coches.xml"));
 		for (Coche c : coches ) {
 			System.out.println(c.toString());
 		}
@@ -28,7 +29,7 @@ public class AppCoche {
 		coches.add(coche1);
 		coches.add(coche2);
 
-		cocheRepository.writeToXml("src/main/resources/1_7_xml_dom/coches_wrote.xml",coches);
+		cocheRepository.writeToXml(new File("src/main/resources/1_7_xml_dom/coches_wrote.xml"),coches);
 	}
 
 }
