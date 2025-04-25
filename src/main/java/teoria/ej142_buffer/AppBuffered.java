@@ -1,5 +1,6 @@
 package teoria.ej142_buffer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,74 +9,45 @@ public class AppBuffered {
 
 	public static void main(String[] args) {
 		String nombreFichero = "C:\\DEV\\buffered.txt";
-		//ejemploBasico(nombreFichero);
-		//imprimirPorConsola(nombreFichero);
+		File fichero = new File(nombreFichero);
+		ejemploBasico(fichero);
+		imprimirPorConsola(fichero);
         try {
-            escribirNumeros(nombreFichero,5);
+            escribirNumeros(fichero,5);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-	private static void imprimirPorConsola(String nombreFichero) {
-		throw new UnsupportedOperationException("A implementar por el alumno");
-	}
+	private static void imprimirPorConsola(File fichero) {
+        try {
+            GestorFicheroBuffered.printFileToConsole(fichero);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	private static void escribirNumeros(String nombreFichero,int numeroMaximo) throws IOException {
+	private static void escribirNumeros(File fichero,int numeroMaximo) throws IOException {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
 	private static List<String> obtenerListaNumeros(int numeroMaximo) {
 		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	private static void ejemploBasico(String nombreFichero) {
+	private static void ejemploBasico(File fichero) {
 		
 		List<String> lines = new ArrayList<String>();
 		lines.add("UNO");
 		lines.add("DOS");
 		try {
-			GestorFicheroBuffered.writeLines(nombreFichero, false,lines);
+			GestorFicheroBuffered.writeLines(fichero, false,lines);
 		} catch (IOException e) {
 			System.out.println("Error al escribir el fichero: " + lines);
 		}
 		
 		try {
-			lines = GestorFicheroBuffered.readLines(nombreFichero);
+			lines = GestorFicheroBuffered.readLines(fichero);
 			for (String line : lines) {
 				System.out.println(line);
 			}
