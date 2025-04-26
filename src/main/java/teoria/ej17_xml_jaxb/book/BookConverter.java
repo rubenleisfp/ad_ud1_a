@@ -10,25 +10,25 @@ import java.io.IOException;
 
 public class BookConverter {
 
-    public void marshallBook(Book book, String filePath) throws JAXBException, IOException {
+    public void marshallBook(Book book, File file) throws JAXBException, IOException {
 
         JAXBContext context = JAXBContext.newInstance(Book.class);
         Marshaller mar = context.createMarshaller();
         mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        mar.marshal(book, new File(filePath));
+        mar.marshal(book,  file);
     }
 
-    public void marshallBookStore(Bookstore bookstore, String filePath) throws JAXBException, IOException {
+    public void marshallBookStore(Bookstore bookstore, File file) throws JAXBException, IOException {
 
         JAXBContext context = JAXBContext.newInstance(Bookstore.class);
         Marshaller mar = context.createMarshaller();
         mar.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        mar.marshal(bookstore, new File(filePath));
+        mar.marshal(bookstore, file);
     }
 
-    public Book unmarshallBook(String filePath) throws JAXBException, IOException {
+    public Book unmarshallBook(File file) throws JAXBException, IOException {
         JAXBContext context = JAXBContext.newInstance(Book.class);
         return (Book) context.createUnmarshaller()
-                .unmarshal(new FileReader(filePath));
+                .unmarshal(file);
     }
 }

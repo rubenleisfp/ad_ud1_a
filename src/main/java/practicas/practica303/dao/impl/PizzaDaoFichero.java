@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PizzaDaoFichero implements PizzeriaDao {
-    private String rutaFichero;
+    private File fichero;
 
-    public PizzaDaoFichero(String rutaFichero) {
-        this.rutaFichero = rutaFichero;
+    public PizzaDaoFichero(File fichero) {
+        this.fichero = fichero;
     }
 
     @Override
@@ -19,7 +19,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
         List<String> pizzas = new ArrayList<>();
         pizzas.add(pizza);
         try {
-            GestorFicheroBuffered.writeLines(new File(rutaFichero),true,pizzas);
+            GestorFicheroBuffered.writeLines(fichero,true,pizzas);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -29,7 +29,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
     public List<String> obtenerPizzas() {
 
         try {
-            List<String> pizzaLines = GestorFicheroBuffered.readLines(new File(rutaFichero));
+            List<String> pizzaLines = GestorFicheroBuffered.readLines(fichero);
             return pizzaLines;
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -42,7 +42,7 @@ public class PizzaDaoFichero implements PizzeriaDao {
         List<String> pizzas = obtenerPizzas();
         if (pizzas.remove(pizza)) {
             try {
-                GestorFicheroBuffered.writeLines(new File(rutaFichero),false,pizzas);
+                GestorFicheroBuffered.writeLines(fichero,false,pizzas);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

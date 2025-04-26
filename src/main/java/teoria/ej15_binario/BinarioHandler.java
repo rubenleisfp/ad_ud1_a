@@ -6,17 +6,17 @@ import java.util.List;
 
 public class BinarioHandler {
 
-	public void escribirBinario(String fileName, List<Producto> productos) {
-		try (ObjectOutputStream serializador = new ObjectOutputStream(new FileOutputStream(fileName))) {
+	public void escribirBinario(File fichero, List<Producto> productos) {
+		try (ObjectOutputStream serializador = new ObjectOutputStream(new FileOutputStream(fichero))) {
 			serializador.writeObject(productos);
 		} catch (IOException ioe) {
 			System.out.println("Error escribiendo en el fichero"+ ioe);
 		}
 	}
 
-	public List<Producto> leerBinario(String fileName) {
+	public List<Producto> leerBinario(File fichero) {
 		List<Producto> listaProductos = null;
-		try (ObjectInputStream deserializador = new ObjectInputStream(new FileInputStream(fileName))) {
+		try (ObjectInputStream deserializador = new ObjectInputStream(new FileInputStream(fichero))) {
 			listaProductos = (ArrayList<Producto>) deserializador.readObject();
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("Error leyendo el fichero. Fichero no encontrado"+ fnfe);

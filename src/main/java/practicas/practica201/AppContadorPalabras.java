@@ -1,5 +1,6 @@
 package practicas.practica201;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,19 +8,19 @@ import java.util.List;
 public class AppContadorPalabras {
 
 	public static void main(String[] args) {
-		String nombreFichero = "src/main/resources/practica202/contador_palabras.txt";
+		File fichero = new File("src/main/resources/practicas/practica201/contador_palabras.txt");
 		String nombreFicheroResultado = "contador_resultado.txt";
 		try {
-			int numPalabras = contarPalabras(nombreFichero);
-			escribirNumPalabras(nombreFicheroResultado,numPalabras);
+			int numPalabras = contarPalabras(fichero);
+			escribirNumPalabras(fichero,numPalabras);
 		} catch (IOException e) {
 			System.out.println("Error: " + e);
 		}
 	}
 	
-	public static int contarPalabras(String nombreFichero) throws IOException {
+	public static int contarPalabras(File fichero) throws IOException {
 		int numPalabras = 0;
-		List<String> lines = BufferedReaderWriter.read(nombreFichero);
+		List<String> lines = GestorFicheroBuffered.readLines(fichero);
 		for (String line: lines) {
 			String[] palabras = line.split(" ");
 			numPalabras += palabras.length;
@@ -28,10 +29,10 @@ public class AppContadorPalabras {
 		return numPalabras;
 	}
 	
-	public static void escribirNumPalabras(String nombreFichero, int numPalabras) throws IOException {
+	public static void escribirNumPalabras(File fichero, int numPalabras) throws IOException {
 		List<String> lines = new ArrayList<String>();
 		lines.add("El numero de palabras del fichero es: " + numPalabras);
-		BufferedReaderWriter.write(nombreFichero, false, lines);
+		GestorFicheroBuffered.writeLines(fichero, false, lines);
 	}
 
 }

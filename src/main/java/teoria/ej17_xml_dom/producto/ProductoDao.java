@@ -1,4 +1,4 @@
-package teoria.ej17_xml_dom;
+package teoria.ej17_xml_dom.producto;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

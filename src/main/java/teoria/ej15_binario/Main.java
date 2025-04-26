@@ -1,11 +1,12 @@
 package teoria.ej15_binario;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-	private static final String FILE_PATH = "producto.dat";
+	private static final File FILE_PATH = new File("producto.dat");
 	
 	public static void main(String[] args) {
 	

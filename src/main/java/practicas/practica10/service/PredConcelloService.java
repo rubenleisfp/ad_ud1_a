@@ -4,6 +4,7 @@ import com.google.gson.*;
 import practicas.practica10.model.*;
 import practicas.practica10.service.dto.TemperaturaMedia;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,21 +13,21 @@ import java.util.List;
 
 public class PredConcelloService {
 
-    public void escribirTemperaturaMediaEnFichero(String inputFilePath, String outputfilePath) throws IOException {
-        TemperaturaMedia temperaturaMedia = getTemperaturaMediaSemanal(inputFilePath);
+    public void escribirTemperaturaMediaEnFichero(File inputFile, File outputFile) throws IOException {
+        TemperaturaMedia temperaturaMedia = getTemperaturaMediaSemanal(inputFile);
 
         JsonObject jsonObject = new JsonObject();
         jsonObject.addProperty("tmax_promedio", temperaturaMedia.getTmax());
         jsonObject.addProperty("tmin_promedio", temperaturaMedia.getTmi());
 
-        try (FileWriter fileWriter = new FileWriter(outputfilePath)) {
+        try (FileWriter fileWriter = new FileWriter(outputFile)) {
             fileWriter.write(new Gson().toJson(jsonObject));
             fileWriter.flush();
         }
     }
 
-    public TemperaturaMedia getTemperaturaMediaSemanal(String filePath) throws IOException {
-        PredConcello predConcello = getPredConcelloFromJsonFile(filePath);
+    public TemperaturaMedia getTemperaturaMediaSemanal(File fichero) throws IOException {
+        PredConcello predConcello = getPredConcelloFromJsonFile(fichero);
         List<PredDiaConcello> listaPredDiaConcello = predConcello.getListaPredDiaConcello();
 
         if (listaPredDiaConcello == null || listaPredDiaConcello.isEmpty()) {
@@ -45,8 +46,8 @@ public class PredConcelloService {
         return new TemperaturaMedia(sumaTmax / totalDias, sumaTmin / totalDias);
     }
 
-    public PredConcello getPredConcelloFromJsonFile(String filePath) throws IOException {
-        try (FileReader reader = new FileReader(filePath)) {
+    public PredConcello getPredConcelloFromJsonFile(File fichero) throws IOException {
+        try (FileReader reader = new FileReader(fichero)) {
             JsonObject root = JsonParser.parseReader(reader).getAsJsonObject();
             JsonObject predConcelloJson = root.getAsJsonObject("predConcello");
 

@@ -19,7 +19,7 @@ public class PizzeriaApp {
 
     private void cfg() {
         pizzeriaDao = new PizzaDaoMemoria();
-        //pizzeriaDao = new PizzaDaoFichero("pizzeria.txt");
+        //pizzeriaDao = new PizzaDaoFichero(new File("pizzeria.txt"));
         pizzeriaService = new PizzeriaService(pizzeriaDao);
     }
 

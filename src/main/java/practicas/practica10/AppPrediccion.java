@@ -3,6 +3,7 @@ package practicas.practica10;
 import practicas.practica10.model.PredConcello;
 import practicas.practica10.service.PredConcelloService;
 
+import java.io.File;
 import java.io.IOException;
 
 public class AppPrediccion {
@@ -18,7 +19,7 @@ public class AppPrediccion {
 
     private  void escribirJsonTemperaturasMedias() {
         try {
-            predConcelloService.escribirTemperaturaMediaEnFichero("src/main/resources/practica10/prediccioncoruna.json","src/main/resources/practica10/tmedia.json");
+            predConcelloService.escribirTemperaturaMediaEnFichero(new File("src/main/resources/practicas/practica10/prediccioncoruna.json"),new File("src/main/resources/practica10/tmedia.json"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -27,7 +28,7 @@ public class AppPrediccion {
     private  void getPredConcelloFromJsonFile() {
 
         try {
-            PredConcello predConcello = predConcelloService.getPredConcelloFromJsonFile("src/main/resources/practica10/prediccioncoruna.json");
+            PredConcello predConcello = predConcelloService.getPredConcelloFromJsonFile(new File("src/main/resources/practicas/practica10/prediccioncoruna.json"));
 
             System.out.println(predConcello);
         } catch (IOException e) {

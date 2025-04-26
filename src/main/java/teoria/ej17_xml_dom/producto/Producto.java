@@ -1,4 +1,4 @@
-package teoria.ej17_xml_dom;
+package teoria.ej17_xml_dom.producto;
 
 public class Producto {
     private String nombre;

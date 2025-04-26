@@ -1,10 +1,6 @@
 package teoria.ej19_json;
 
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +17,7 @@ public class AppAlumnos {
 
 		// Parte1: Lee el fichero de alumnos, crear una lista de alumnos y mostrarlos
 		// por consola
-		List<Alumno> alumnos = leerJson("src/main/resources/json/alumnos.json");
+		List<Alumno> alumnos = leerJson(new File("src/main/resources/json/alumnos.json"));
 
 		// Parte 2: Generar y escribir en el archivo alumnos_output.json
 		escribirJson("src/main/resources/json/alumnos_new_output.json");
@@ -45,10 +41,10 @@ public class AppAlumnos {
 	}
 	
 
-	private static List<Alumno> leerJson(String filePath) {
+	private static List<Alumno> leerJson(File file) {
 		Gson gson = new Gson();
 		List<Alumno> alumnos = new ArrayList<>();
-		try (Reader reader = new FileReader(filePath)) {
+		try (Reader reader = new FileReader(file)) {
 			Type tipoListaAlumnos = new TypeToken<List<Alumno>>() {
 			}.getType();
 			alumnos = gson.fromJson(reader, tipoListaAlumnos);

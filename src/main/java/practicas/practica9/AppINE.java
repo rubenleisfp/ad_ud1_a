@@ -12,14 +12,14 @@ import java.util.List;
 public class AppINE {
 	
 	
-	private static String INE_PATH = "src/main/resources/practica9/provincias.csv";
+	private static File INE_PATH = new File("src/main/resources/practicas/practica9/provincias.csv");
 	private static String CSV_SEPARATOR = ";";
 	private static int PRIMERAS_PROVINCIAS = 5;
 
 	public static void main(String[] args) {
 		
 		try {
-			List<String> lineas=getLineasFichero(new File(INE_PATH));
+			List<String> lineas=getLineasFichero(INE_PATH);
 			List<Provincia> provincias = parsearLineas(lineas);
 			ordenar(provincias);
 			mostrarNPrimerasProvincias(provincias);

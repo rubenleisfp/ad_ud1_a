@@ -4,6 +4,7 @@ import practicas.futbol.dao.EquipoDao;
 import practicas.futbol.model.Equipo;
 import org.junit.Test;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -13,9 +14,9 @@ import static org.junit.Assert.assertNotNull;
 
 public class EquipoDaoTest {
 
-    private static final String TEST_SOURCE = "src/test/resources/practica11/source.json";
-    private static final String TEST_TARGET = "src/test/resources/practica11/target.csv";
-    private static final String EXPECTED_CSV = "src/test/resources/practica11/expected.csv";
+    private static final File TEST_SOURCE = new File("src/test/resources/practica11/source.json");
+    private static final File TEST_TARGET = new File("src/test/resources/practica11/target.csv");
+    private static final File EXPECTED_CSV = new File("src/test/resources/practica11/expected.csv");
 
     @Test
     public void testLeerEquipos() throws Exception {

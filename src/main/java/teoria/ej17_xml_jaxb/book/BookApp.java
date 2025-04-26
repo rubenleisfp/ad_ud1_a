@@ -2,6 +2,7 @@ package teoria.ej17_xml_jaxb.book;
 
 import jakarta.xml.bind.JAXBException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,11 +29,11 @@ public class BookApp {
 		book1.setName("Book1");
 		book1.setAuthor("Author1");
 		book1.setDate(new Date());
-		bookConverter.marshallBook(book1,"src\\main\\resources\\1_7_xml_jaxb\\book_wrote.xml");
+		bookConverter.marshallBook(book1,new File("src\\main\\resources\\1_7_xml_jaxb\\book_wrote.xml"));
 	}
 
 	public Book unmarshallBook() throws JAXBException, IOException {
-		Book book = bookConverter.unmarshallBook("src\\main\\resources\\1_7_xml_jaxb\\book_1_ok.xml");
+		Book book = bookConverter.unmarshallBook(new File("src\\main\\resources\\1_7_xml_jaxb\\book_1_ok.xml"));
 		return book;
 	}
 
@@ -59,7 +60,7 @@ public class BookApp {
 		bookstore.setBookList(books);
 
 
-		bookConverter.marshallBookStore(bookstore,"src\\main\\resources\\1_7_xml_jaxb\\bookstore.xml");
+		bookConverter.marshallBookStore(bookstore,new File("src\\main\\resources\\1_7_xml_jaxb\\bookstore.xml"));
 
 	}
 	

@@ -2,6 +2,7 @@ package teoria.ej17_xml_jaxb.aula;
 
 import jakarta.xml.bind.JAXBException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +55,7 @@ public class AulaApp {
 		aula.setNombreAula("DAM 2");
 		aula.setAlumnos(alumnos);
 
-		aulaConverter.marshallAula(aula,"src\\main\\resources\\1_7_xml_jaxb\\aula.xml");
+		aulaConverter.marshallAula(aula,new File("src\\main\\resources\\1_7_xml_jaxb\\aula.xml"));
 	}
 
 }

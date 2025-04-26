@@ -4,9 +4,7 @@ import java.io.File;
 
 public class Practica7 {
     public static void main(String[] args) {
-    	String ruta = "G:\\Mi unidad\\FP\\DEV\\AD\\UD1\\ad_ud1_1\\src\\main\\resources\\1_1_recursividad\\A\\A1\\A11\\A11.txt";
-    	ruta = "G:/Mi unidad/FP/DEV/AD/UD1/ad_ud1_1/src/main/resources/1_1_recursividad/A/A1/A11/A11.txt";
-
+    	String ruta = "src/main/resources/1_1_recursividad/A";
         mostrarInfoFichero(ruta);
     }
     

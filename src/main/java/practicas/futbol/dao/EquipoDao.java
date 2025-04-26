@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import practicas.futbol.model.Equipo;
 import practicas.futbol.model.Titulo;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -13,10 +14,10 @@ import java.util.List;
 
 public class EquipoDao {
 
-    public List<Equipo> leerEquipos(String sourcePath) throws Exception {
+    public List<Equipo> leerEquipos(File fichero) throws Exception {
         List<Equipo> equipos = new ArrayList<>();
 
-        try (FileReader reader = new FileReader(sourcePath)) {
+        try (FileReader reader = new FileReader(fichero)) {
             JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
 
             for (var element : jsonArray) {
@@ -38,8 +39,8 @@ public class EquipoDao {
         return equipos;
     }
 
-    public void escribirCsv(String targetPath, List<Equipo> equipos) throws Exception {
-        try (FileWriter writer = new FileWriter(targetPath)) {
+    public void escribirCsv(File targetFile, List<Equipo> equipos) throws Exception {
+        try (FileWriter writer = new FileWriter(targetFile)) {
             writer.write("equipo;total_titulos\n");
             for (Equipo equipo : equipos) {
                 writer.write(equipo.getNombre() + ";" + equipo.getTotalTitulos() + "\n");

@@ -10,10 +10,10 @@ public class Practica6 {
 	public static void main(String[] args) throws IOException {
 
 		System.out.println("Listar txt:");
-		listarPorExtension("src/main/resources/1_1_recursividad");
+		listarPorExtension(new File("src/main/resources/1_1_recursividad"));
 
 		System.out.println("Listar csv:");
-		listarPorExtension("src/main/resources/1_1_recursividad", ".xsd");
+		listarPorExtension(new File("src/main/resources/1_1_recursividad", ".xsd"));
 
 		System.out.println("Listar por csv y txt:");
 		List<String> extensiones = new ArrayList<String>();
@@ -55,8 +55,7 @@ public class Practica6 {
 	}
 
 	
-	public static void listarPorExtension(String ruta) {
-		File fichero = new File(ruta);
+	public static void listarPorExtension(File fichero) {
 		if (fichero.isDirectory()) {
 			File[] lista = fichero.listFiles();
 
@@ -67,7 +66,7 @@ public class Practica6 {
 				}
 
 				if (lista[i].isDirectory()) {
-					listarPorExtension(lista[i].getPath());
+					listarPorExtension(new File(lista[i].getPath()));
 				}
 			}
 
@@ -75,8 +74,7 @@ public class Practica6 {
 
 	}
 
-	public static void listarPorExtension(String ruta, String extension) {
-		File fichero = new File(ruta);
+	public static void listarPorExtension(File fichero, String extension) {
 		if (fichero.isDirectory()) {
 			File[] lista = fichero.listFiles();
 
@@ -87,7 +85,7 @@ public class Practica6 {
 				}
 
 				if (lista[i].isDirectory()) {
-					listarPorExtension(lista[i].getPath(), extension);
+					listarPorExtension(new File(lista[i].getPath()), extension);
 				}
 			}
 
