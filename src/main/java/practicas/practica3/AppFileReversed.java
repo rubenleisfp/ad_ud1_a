@@ -3,7 +3,7 @@ package practicas.practica3;
 import java.io.File;
 import java.io.IOException;
 
-public class FileReversedApp {
+public class AppFileReversed {
 
 	public static void main(String[] args) {
 		File original = new File("src/main/resources/practica3/original.txt");
