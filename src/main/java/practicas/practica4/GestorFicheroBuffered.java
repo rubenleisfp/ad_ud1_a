@@ -21,15 +21,7 @@ public class GestorFicheroBuffered {
 	public static List<String> readLines(File fichero) throws IOException {
 		// Con try resources no tenemos que cerrar los recursos, Java ya lo hace por
 		// nosotros
-		List<String> lineas = new ArrayList<String>();
-		try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
-			String linea;
-			while ((linea = br.readLine()) != null) {
-
-				lineas.add(linea);
-			}
-		}
-		return lineas;
+		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
 	/**
@@ -41,20 +33,10 @@ public class GestorFicheroBuffered {
 	 * @throws IOException
 	 */
 	public static void writeLines(File fichero, boolean append, List<String> lines) throws IOException {
-		// Con try resources no tenemos que cerrar los recursos, Java ya lo hace por
-		// nosotros
-		try (FileWriter fw = new FileWriter(fichero, append); BufferedWriter bw = new BufferedWriter(fw)) {
-			for (String line : lines) {
-				bw.write(line);
-				bw.newLine();
-			}
-		}
+		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 
 	public static void printFileToConsole(File fichero) throws IOException {
-		List<String> lines = readLines(fichero);
-		for (String line: lines) {
-			System.out.println(line);
-		}
+		throw new UnsupportedOperationException("A implementar por el alumno");
 	}
 }

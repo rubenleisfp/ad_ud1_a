@@ -39,23 +39,7 @@ public class FusionadorFicheros {
      * @throws IOException si ocurre un error al leer o escribir en los archivos
      */
     public static void fusionarFicheros(File fichero1, File fichero2) throws IOException {
-
-        String nombre1 = obtenerNombreSinExtension(fichero1);
-        String nombre2 = obtenerNombreSinExtension(fichero2);
-        String nombreFinal = nombre1 + "_" + nombre2 + ".txt";
-
-        String directorioPadre = fichero1.getParent();
-        File ficheroDestino = new File(directorioPadre + File.separator + nombreFinal);
-
-        List<String> fichero1Lines = GestorFicheroBuffered.readLines(fichero1);
-        List<String> fichero2Lines = GestorFicheroBuffered.readLines(fichero2);
-
-        List<String> lineasFusionadas = new ArrayList<>();
-        lineasFusionadas.addAll(fichero1Lines);
-        lineasFusionadas.addAll(fichero2Lines);
-
-        GestorFicheroBuffered.writeLines(ficheroDestino, false, lineasFusionadas);
-
+        throw new UnsupportedOperationException("A implementar por el alumno");
     }
 
     /**
