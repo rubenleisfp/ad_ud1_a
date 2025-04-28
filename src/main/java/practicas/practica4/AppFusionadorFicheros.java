@@ -1,12 +1,8 @@
 package practicas.practica4;
 
 import java.io.*;
-import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class FusionadorFicheros {
+public class AppFusionadorFicheros {
 
     public static void main(String[] args) {
         String ruta1 = "src/main/resources/practicas/practica4/fich1.txt";
