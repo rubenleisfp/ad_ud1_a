@@ -12,9 +12,9 @@ public class AppBuffered {
         File fichero = new File(nombreFichero);
 
         try {
-            ejemploBasico(fichero);
+            //ejemploBasico(fichero);
             //imprimirPorConsola(fichero);
-            //escribirNumeros(fichero,5);
+            escribirNumeros(fichero,5);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -24,8 +24,28 @@ public class AppBuffered {
         GestorFicheroBuffered.printFileToConsole(fichero);
     }
 
+    /**
+     * Escribe lineas en un fichero hasta un entero dado.
+     * Si la linea es impar: "linea 1 es impar"
+     * Si la linea es par: "linea 2 es par"
+     *
+     *
+     * @param fichero
+     * @param numeroMaximo
+     * @throws IOException
+     */
     private static void escribirNumeros(File fichero, int numeroMaximo) throws IOException {
-
+        List<String> lineas = new ArrayList<>();
+        for (int i=1; i<numeroMaximo;i++) {
+            String linea = "";
+            if (i%2 ==0) {
+                linea ="linea " + i + " es par";
+            } else {
+                linea ="linea " + i + " es imppar";
+            }
+            lineas.add(linea);
+        }
+        GestorFicheroBuffered.writeLines(fichero, false, lineas);
     }
 
     private static void ejemploBasico(File fichero) throws IOException {

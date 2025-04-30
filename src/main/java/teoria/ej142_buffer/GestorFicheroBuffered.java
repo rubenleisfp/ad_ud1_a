@@ -12,6 +12,13 @@ import java.util.List;
  */
 public class GestorFicheroBuffered {
 
+	public static void printFileToConsole(File fichero) throws IOException {
+		List<String> lines = readLines(fichero);
+		for (String line: lines) {
+			System.out.println(line);
+		}
+	}
+
 	/**
 	 * Lee un fichero y vuelva las lineas en una lista
 	 * @param fichero
@@ -25,7 +32,6 @@ public class GestorFicheroBuffered {
 		try (FileReader fr = new FileReader(fichero); BufferedReader br = new BufferedReader(fr)) {
 			String linea;
 			while ((linea = br.readLine()) != null) {
-				
 				lineas.add(linea);
 			}
 		}
@@ -51,10 +57,5 @@ public class GestorFicheroBuffered {
 		}
 	}
 	
-	public static void printFileToConsole(File fichero) throws IOException {
-		List<String> lines = readLines(fichero);
-		for (String line: lines) {
-			System.out.println(line);
-		}
-	}
+
 }
