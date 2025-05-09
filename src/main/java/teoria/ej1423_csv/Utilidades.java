@@ -7,21 +7,36 @@ public class Utilidades {
 
     /**
      * Transforma alumnos en lineas
+     *
      * @param alumnos
      * @return Juan, 28, juan@example.com
-     *         María,32,maria@example.com
+     * María,32,maria@example.com
      */
     public List<String> getLineasAlumnos(List<Alumno> alumnos) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+
+        List<String> lineas = new ArrayList<>();
+        lineas.add("Nombre,Edad,Correo");
+        for (Alumno alumno : alumnos) {
+            String linea = getLineaAlumno(alumno); //Juan, 28, juan@example.com
+            lineas.add(linea);
+        }
+        return lineas;
     }
 
     /**
      * Transforma un alumno en una linea
+     *
      * @param alumno
-     * @return Juan,28,juan@example.com
+     * @return Juan, 28, juan@example.com
      */
     public String getLineaAlumno(Alumno alumno) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        StringBuilder sb = new StringBuilder();
+        sb.append(alumno.getNombre());
+        sb.append(",");
+        sb.append(alumno.getEdad());
+        sb.append(",");
+        sb.append(alumno.getCorreo());
+        return sb.toString();
     }
 
     /**
@@ -33,8 +48,13 @@ public class Utilidades {
      * @return
      */
     public List<Alumno> getAlumnosFromLineas(List<String> lineas) {
+        List<Alumno> alumnos = new ArrayList<>();
         //Quitamos la cabecera
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        lineas.remove(0);
+        for (String linea: lineas) {
+            alumnos.add(getAlumnoFromLine(linea));
+        }
+        return alumnos;
     }
 
     /**
@@ -44,6 +64,12 @@ public class Utilidades {
      * @return
      */
     private Alumno getAlumnoFromLine(String lineaAlumno) {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        Alumno alumno = new Alumno();
+        String[] camposAlumno = lineaAlumno.split(","); // ["Maria", 32, "maria@example.com"]
+        alumno.setNombre(camposAlumno[0]);
+        alumno.setEdad(Integer.valueOf(camposAlumno[1]));
+        alumno.setCorreo(camposAlumno[2]);
+        return alumno;
+
     }
 }

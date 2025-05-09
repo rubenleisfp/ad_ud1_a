@@ -15,8 +15,8 @@ public class AppAlumnos {
 
         // Crear una lista de alumnos para escribir en el fichero
         List<Alumno> listaAlumnos = new ArrayList<>();
-        listaAlumnos.add(new Alumno("Juan", 28, "juan@example.com"));
-        listaAlumnos.add(new Alumno("María", 32, "maria@example.com"));
+        listaAlumnos.add(new Alumno("Juan", 28, "duki83@example.com"));
+        listaAlumnos.add(new Alumno("María", 32, "mery@example.com"));
         listaAlumnos.add(new Alumno("Pedro", 22, "pedro@example.com"));
 
         try {
@@ -34,7 +34,10 @@ public class AppAlumnos {
             // Calcular y mostrar la edad media de los alumnos
             double edadMedia = gestor.getEdadMedia(filePath);
             System.out.println("Edad media de los alumnos: " + edadMedia);
-
+            List<Alumno> alumnosMayores = gestor.getAlumnosMayores(filePath,27);
+            for (Alumno alumno: alumnosMayores) {
+                System.out.println(alumno);
+            }
         } catch (IOException e) {
             System.err.println("Error al manejar el fichero CSV: " + e.getMessage());
         }

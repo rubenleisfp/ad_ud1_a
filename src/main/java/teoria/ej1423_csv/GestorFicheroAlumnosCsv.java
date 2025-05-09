@@ -2,6 +2,7 @@ package teoria.ej1423_csv;
 
 import teoria.ej142_buffer.GestorFicheroBuffered;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,8 @@ public class GestorFicheroAlumnosCsv {
      * @throws IOException
      */
     public List<Alumno> getAlumnos(String filePath) throws IOException {
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        List<String> lineas = GestorFicheroBuffered.readLines(new File(filePath));
+        return utilidades.getAlumnosFromLineas(lineas);
     }
 
     /**
@@ -31,10 +33,27 @@ public class GestorFicheroAlumnosCsv {
      * @throws IOException
      */
     public double getEdadMedia(String filePath) throws IOException {
-        //TODO
-        //1.Llamar a GestorFiheroBuffered para obtener una list<String> con el contenido del fichero
-        //2.Transformar la linea en un alumno. Repetir el proceso para todas las lineas del fichero
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        List<Alumno> alumnos = this.getAlumnos(filePath);
+        double edadMedia = 0;
+        for (Alumno alumno: alumnos) {
+            edadMedia = edadMedia + alumno.getEdad();
+
+        }
+        edadMedia = edadMedia /alumnos.size();
+        return edadMedia;
+    }
+
+    public List<Alumno> getAlumnosMayores(String filePath, int edadCriba) throws IOException {
+        List<Alumno> alumnosMayores = new ArrayList<>();
+        List<Alumno> alumnosFichero = this.getAlumnos(filePath);
+        for (Alumno alumnoFichero: alumnosFichero) {
+            if (alumnoFichero.getEdad() > edadCriba) {
+                alumnosMayores.add(alumnoFichero);
+            }
+        }
+        alumnosMayores.sort(new AlumnoComparator());
+        return alumnosMayores;
+
     }
 
     /**
@@ -48,6 +67,7 @@ public class GestorFicheroAlumnosCsv {
         //TODO
         //1. Transformar un alumno en una linea de texto, dónde campo se separa por ,. Repetir el proceso para todos los alumnos
         //2.-Llama al GestorFicheroBuffered para pasarle la lista de lineas
-        throw new UnsupportedOperationException("A implementar por el alumno");
+        List<String> lineas = utilidades.getLineasAlumnos(alumnos);
+        GestorFicheroBuffered.writeLines(new File(filePath), false, lineas);
     }
 }

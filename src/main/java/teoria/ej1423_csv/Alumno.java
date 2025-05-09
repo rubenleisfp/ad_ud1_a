@@ -8,6 +8,10 @@ public class Alumno {
     private int edad;
     private String correo;
 
+    public Alumno() {
+
+    }
+
     public Alumno(String nombre, int edad, String correo) {
         this.nombre = nombre;
         this.edad = edad;
