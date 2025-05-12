@@ -4,7 +4,9 @@ import practicas.practica305.dao.DaoArtistas;
 import practicas.practica305.exceptions.ExcepcionGestorArtista;
 import practicas.practica305.exceptions.RegistroDuplicado;
 import practicas.practica305.utils.GestorBuffered;
+import teoria.ej142_buffer.GestorFicheroBuffered;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,14 @@ public class DaoArtistasFichero implements DaoArtistas {
 			//3.- Añadir el artista recibido como argumento a la lista
 			//4.- Volcar la lista a fichero mediante GestorBuffered
 			//5.- Capturar la excepcion y generar una ExcepcionGestorArtista
+
+			try {
+				List<String> artistaList = new ArrayList<>();
+				artistaList.add(artista);
+				GestorFicheroBuffered.writeLines(new File(nombreFichero), false, artistaList);
+			} catch (IOException io) {
+				throw new ExcepcionGestorArtista(io.getMessage());
+			}
 
 			throw new UnsupportedOperationException("Operacion a implementar por el alumno");
 	}
