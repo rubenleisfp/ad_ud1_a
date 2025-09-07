@@ -1,4 +1,4 @@
-package teoria.ej142_reader_writer;
+package teoria.ej142;
 
 import java.io.File;
 import java.io.IOException;
