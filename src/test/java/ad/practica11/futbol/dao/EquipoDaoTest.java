@@ -36,7 +36,7 @@ public class EquipoDaoTest {
         dao.escribirCsv(TEST_TARGET, equipos);
 
         // Leer el archivo generado
-        List<String> actualLines = Files.readAllLines(Path.of(TEST_TARGET));
+        List<String> actualLines = Files.readAllLines(TEST_TARGET.toPath());
 
         // Validar las cabeceras
         assertEquals("equipo;total_titulos", actualLines.get(0));
@@ -53,8 +53,8 @@ public class EquipoDaoTest {
         dao.escribirCsv(TEST_TARGET, equipos);
 
         // Leer el archivo generado y el archivo esperado
-        List<String> actualLines = Files.readAllLines(Path.of(TEST_TARGET));
-        List<String> expectedLines = Files.readAllLines(Path.of(EXPECTED_CSV));
+        List<String> actualLines = Files.readAllLines(TEST_TARGET.toPath());
+        List<String> expectedLines = Files.readAllLines(EXPECTED_CSV.toPath());
 
         // Validar que ambos archivos son iguales
         assertEquals(expectedLines, actualLines);

@@ -8,6 +8,7 @@ import practicas.practica306.utils.GestorFicheroBuffered;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -16,24 +17,24 @@ import java.util.List;
 public class GestorBufferedTest {
 
     private File testFilePath = new File("testFile.txt");
-    private File testFile;
+    //private File testFile;
 
     @Before
     public void setUp() throws Exception {
-        if (testFile.exists()) {
-            testFile.delete();
+        if (testFilePath.exists()) {
+            testFilePath.delete();
         }
     }
 
     @After
     public void tearDown() throws Exception {
         // Eliminar el fichero después de cada test
-        if (testFile.exists()) {
-            testFile.delete();
+        if (testFilePath.exists()) {
+            testFilePath.delete();
         }
     }
 
-    @Test
+    @Test(expected = FileNotFoundException.class)
     public void testReadFileNoFileExists() throws IOException {
         // Test para leer cuando el fichero no existe
         List<String> result = GestorFicheroBuffered.readLines(testFilePath);
